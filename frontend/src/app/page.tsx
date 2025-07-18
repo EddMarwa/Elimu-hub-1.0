@@ -15,7 +15,7 @@ export default function Home() {
 
   const particlesOptions: RecursivePartial<IOptions> = {
     background: {
-      color: { value: "#f8fafc" },
+      color: { value: "transparent" },
     },
     fpsLimit: 60,
     particles: {
@@ -46,7 +46,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-green-200 via-yellow-100 to-green-300">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {showParticles && (
         <Particles
           id="tsparticles"
