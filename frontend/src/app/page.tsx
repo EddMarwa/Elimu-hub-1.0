@@ -1,62 +1,23 @@
-"use client";
-import type { RecursivePartial, IOptions } from "tsparticles-engine";
-import dynamic from "next/dynamic";
 import Link from "next/link";
-import ClientOnly from "@/components/ClientOnly";
-
-const Particles = dynamic(() => import("react-tsparticles"), { ssr: false });
+import ClientOnly from "./components/ClientOnly";
+import AnimatedBackground from "./components/AnimatedBackground";
 
 export default function Home() {
-
-  const particlesOptions: RecursivePartial<IOptions> = {
-    background: {
-      color: { value: "transparent" },
-    },
-    fpsLimit: 60,
-    particles: {
-      number: { value: 18, density: { enable: true, area: 800 } },
-      color: { value: ["#198754", "#FFD700", "#4CAF50"] },
-      shape: {
-        type: "image",
-        image: [
-          {
-            src: "/file.svg",
-            width: 20,
-            height: 20,
-          },
-        ],
-      },
-      opacity: { value: 0.25 },
-      size: { value: 24, random: { enable: true, minimumValue: 16 } },
-      move: {
-        enable: true,
-        speed: 1.2,
-        direction: "none" as const,
-        random: true,
-        straight: false,
-        outModes: { default: 'out' },
-      },
-    },
-    detectRetina: true,
-  };
-
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Animated background elements - only render on client */}
       <ClientOnly>
-        <Particles
-          id="tsparticles"
-          options={particlesOptions}
-          className="absolute inset-0 z-0"
-        />
+        <AnimatedBackground />
       </ClientOnly>
+      
       {/* Hero Section */}
       <main className="relative z-10 flex flex-col items-center justify-center px-6 py-24 sm:py-32">
         <h1 className="text-4xl sm:text-6xl font-extrabold text-center mb-4">
-          <span className="text-green-700">Elimu </span>
-          <span className="bg-gradient-to-r from-yellow-400 via-green-500 to-green-700 bg-clip-text text-transparent">Hub</span>
-          <span className="text-yellow-500"> AI</span>
+          <span className="text-white drop-shadow-lg">Elimu </span>
+          <span className="bg-gradient-to-r from-yellow-200 via-white to-yellow-200 bg-clip-text text-transparent drop-shadow-lg">Hub</span>
+          <span className="text-yellow-200 drop-shadow-lg"> AI</span>
         </h1>
-        <p className="max-w-xl text-center text-lg sm:text-2xl text-gray-700 mb-8">
+        <p className="max-w-xl text-center text-lg sm:text-2xl text-white mb-8 drop-shadow-md">
           Empowering Kenyan education with AI. Curriculum-aligned answers, lesson planning, and personalized learning for teachers and students.
         </p>
         <Link
