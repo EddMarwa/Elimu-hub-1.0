@@ -1,17 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
 import type { RecursivePartial, IOptions } from "tsparticles-engine";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import ClientOnly from "@/components/ClientOnly";
 
 const Particles = dynamic(() => import("react-tsparticles"), { ssr: false });
 
 export default function Home() {
-  const [showParticles, setShowParticles] = useState(false);
-
-  useEffect(() => {
-    setShowParticles(true);
-  }, []);
 
   const particlesOptions: RecursivePartial<IOptions> = {
     background: {
@@ -47,13 +42,13 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {showParticles && (
+      <ClientOnly>
         <Particles
           id="tsparticles"
           options={particlesOptions}
           className="absolute inset-0 z-0"
         />
-      )}
+      </ClientOnly>
       {/* Hero Section */}
       <main className="relative z-10 flex flex-col items-center justify-center px-6 py-24 sm:py-32">
         <h1 className="text-4xl sm:text-6xl font-extrabold text-center mb-4">
