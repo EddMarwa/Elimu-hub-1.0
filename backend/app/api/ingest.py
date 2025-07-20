@@ -1,72 +1,147 @@
-from fastapi import APIRouter, UploadFile, File, HTTPException
+from fastapi import APIRouter, UploadFile, File, HTTPException, Depends, status
 from sqlalchemy.orm import Session
 from app.db.database import SessionLocal, Document
+from app.auth.dependencies import get_current_active_user
+from app.auth.models import User
 from app.services.embedding_service import EmbeddingService
 from app.services.vector_store import VectorStore
+from app.config import settings
+from app.utils.logger import logger
 import os
 try:
     import fitz  # PyMuPDF
 except ImportError:
     from PyMuPDF import fitz
 from datetime import datetime
+from app.db.fts import insert_document_content
+from app.services.cache import cache
+from app.api.upload_progress import send_upload_progress
+from app.services.job_queue import job_queue
+from app.services.analytics import analytics
+from app.services.pdf_ingestor import pdf_ingestor
+from app.services.cache_service import cache_service
+import uuid
 
 router = APIRouter()
 
-PDF_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../data/pdfs'))
-CHROMA_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../data/chroma'))
-
-@router.post("/ingest/{topic}")
-async def ingest_topic(topic: str, files: list[UploadFile] = File(...)):
-    os.makedirs(os.path.join(PDF_ROOT, topic), exist_ok=True)
-    db: Session = SessionLocal()
-    embedder = EmbeddingService()
-    vector_store = VectorStore(persist_directory=CHROMA_ROOT)
-    results = []
-    for file in files:
-        if not file.filename.lower().endswith('.pdf'):
-            raise HTTPException(status_code=400, detail=f"{file.filename} is not a PDF.")
-        file_path = os.path.join(PDF_ROOT, topic, file.filename)
-        content = await file.read()
-        with open(file_path, 'wb') as f:
-            f.write(content)
-        # Extract PDF metadata
-        pdf = fitz.open(file_path)
-        page_count = pdf.page_count
-        all_chunks = []
-        all_metadatas = []
-        for page_num in range(page_count):
-            page = pdf.load_page(page_num)
-            text = page.get_text()
-            if not text.strip():
-                continue
-            chunks = embedder.chunk_text(text)
-            all_chunks.extend(chunks)
-            all_metadatas.extend([
-                {"source_file": file.filename, "page": page_num + 1} for _ in chunks
-            ])
-        pdf.close()
-        file_size_mb = round(os.path.getsize(file_path) / 1024 / 1024, 2)
-        doc = Document(
-            file_name=file.filename,
-            topic=topic,
-            page_count=page_count,
-            file_size_mb=file_size_mb,
-            date_uploaded=datetime.utcnow()
+@router.post("/ingest")
+async def ingest_document(
+    file: UploadFile = File(...),
+    current_user: User = Depends(get_current_active_user)
+):
+    """Ingest a PDF document."""
+    try:
+        # Validate file
+        if not file.filename.endswith('.pdf'):
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Only PDF files are supported"
+            )
+        
+        # Create job for processing
+        job_id = str(uuid.uuid4())
+        
+        # Save file temporarily
+        temp_path = f"temp_{job_id}.pdf"
+        with open(temp_path, "wb") as buffer:
+            content = await file.read()
+            buffer.write(content)
+        
+        # Submit job to queue
+        job_queue.submit_job(
+            job_id=job_id,
+            func=process_ingest_job,
+            args=(temp_path, current_user.id, job_id)
         )
-        db.add(doc)
-        db.commit()
-        db.refresh(doc)
-        # Embed and store in Chroma
-        if all_chunks:
-            embeddings = embedder.embed_texts(all_chunks)
-            vector_store.add_chunks(topic, all_chunks, embeddings, all_metadatas)
-        results.append({
-            "id": doc.id,
-            "file_name": doc.file_name,
-            "topic": doc.topic,
-            "page_count": doc.page_count,
-            "file_size_mb": doc.file_size_mb,
-            "date_uploaded": doc.date_uploaded.isoformat()
+        
+        # Log user activity
+        analytics.log_user_activity(
+            user_id=current_user.id,
+            activity_type="upload",
+            details={"filename": file.filename, "job_id": job_id}
+        )
+        
+        return {
+            "message": "Document uploaded successfully",
+            "job_id": job_id,
+            "status": "pending"
+        }
+        
+    except Exception as e:
+        logger.error(f"Error ingesting document: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Failed to ingest document"
+        )
+
+async def process_ingest_job(file_path: str, user_id: int, job_id: str):
+    """Process document ingestion with progress tracking."""
+    try:
+        # Send initial progress
+        await send_upload_progress(user_id, job_id, {
+            "status": "processing", 
+            "progress": 10, 
+            "message": "Starting document processing..."
         })
-    db.close()
-    return {"uploaded": results} 
+        
+        # Extract text from PDF
+        await send_upload_progress(user_id, job_id, {
+            "status": "processing", 
+            "progress": 30, 
+            "message": "Extracting text from PDF..."
+        })
+        
+        text = pdf_ingestor.extract_text(file_path)
+        if not text:
+            raise Exception("Failed to extract text from PDF")
+        
+        # Generate embeddings
+        await send_upload_progress(user_id, job_id, {
+            "status": "processing", 
+            "progress": 60, 
+            "message": "Generating embeddings..."
+        })
+        
+        embeddings = EmbeddingService().generate_embeddings(text)
+        
+        # Store in vector database
+        await send_upload_progress(user_id, job_id, {
+            "status": "processing", 
+            "progress": 80, 
+            "message": "Storing in vector database..."
+        })
+        
+        VectorStore(persist_directory=str(settings.CHROMA_DIR)).add_documents([text], embeddings)
+        
+        # Update cache
+        await send_upload_progress(user_id, job_id, {
+            "status": "processing", 
+            "progress": 90, 
+            "message": "Updating cache..."
+        })
+        
+        cache_service.invalidate_documents_cache()
+        
+        # Complete
+        await send_upload_progress(user_id, job_id, {
+            "status": "completed", 
+            "progress": 100, 
+            "message": "Document processed successfully"
+        })
+        
+        # Clean up temp file
+        if os.path.exists(file_path):
+            os.remove(file_path)
+            
+    except Exception as e:
+        error_msg = f"Job failed: {str(e)}"
+        await send_upload_progress(user_id, job_id, {
+            "status": "failed", 
+            "progress": 0, 
+            "message": error_msg
+        })
+        logger.error(f"Job {job_id} failed: {e}")
+        
+        # Clean up temp file
+        if os.path.exists(file_path):
+            os.remove(file_path) 

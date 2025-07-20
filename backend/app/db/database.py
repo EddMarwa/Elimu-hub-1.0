@@ -4,11 +4,9 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from contextlib import contextmanager
 from datetime import datetime
+from app.config import settings
 
-DB_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../data/documents.db'))
-DATABASE_URL = f"sqlite:///{DB_PATH}"
-
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+engine = create_engine(settings.DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
@@ -29,5 +27,10 @@ class Document(Base):
     file_size_mb = Column(Float, nullable=False)
     date_uploaded = Column(DateTime, default=datetime.utcnow)
 
-# Create the table if it doesn't exist
+# Import all models to ensure they're included in table creation
+from app.auth.models import User
+from app.models.chat import ChatSession, ChatMessage
+from app.models.analytics import APIRequest, UserActivity, SystemMetrics
+
+# Create all tables
 Base.metadata.create_all(bind=engine) 

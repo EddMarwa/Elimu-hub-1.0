@@ -1,50 +1,107 @@
 from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import Session
 from app.db.database import SessionLocal, Document
+from app.config import settings
 import os
+from typing import List
+from app.services.cache import cache
+import logging
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
 @router.get("/list-documents")
 def list_documents():
     db: Session = SessionLocal()
-    docs = db.query(Document).all()
-    db.close()
-    return [{
-        "id": d.id,
-        "file_name": d.file_name,
-        "topic": d.topic,
-        "page_count": d.page_count,
-        "file_size_mb": d.file_size_mb,
-        "date_uploaded": d.date_uploaded.isoformat()
-    } for d in docs]
+    try:
+        # Try cache first
+        cached_docs = cache.get_document_list()
+        if cached_docs:
+            logger.info("Returning cached document list")
+            return cached_docs
+        
+        docs = db.query(Document).all()
+        result = [{
+            "id": d.id,
+            "file_name": d.file_name,
+            "topic": d.topic,
+            "page_count": d.page_count,
+            "file_size_mb": d.file_size_mb,
+            "date_uploaded": d.date_uploaded.isoformat()
+        } for d in docs]
+        
+        # Cache the result
+        cache.set_document_list(result)
+        
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error retrieving documents: {str(e)}")
+    finally:
+        db.close()
 
 @router.get("/list-documents/{topic}")
 def list_documents_by_topic(topic: str):
+    if not topic or len(topic.strip()) == 0:
+        raise HTTPException(status_code=400, detail="Topic cannot be empty")
+    
     db: Session = SessionLocal()
-    docs = db.query(Document).filter(Document.topic == topic).all()
-    db.close()
-    return [{
-        "id": d.id,
-        "file_name": d.file_name,
-        "topic": d.topic,
-        "page_count": d.page_count,
-        "file_size_mb": d.file_size_mb,
-        "date_uploaded": d.date_uploaded.isoformat()
-    } for d in docs]
+    try:
+        # Try cache first
+        cached_docs = cache.get_document_list(topic)
+        if cached_docs:
+            logger.info(f"Returning cached document list for topic: {topic}")
+            return cached_docs
+        
+        docs = db.query(Document).filter(Document.topic == topic).all()
+        result = [{
+            "id": d.id,
+            "file_name": d.file_name,
+            "topic": d.topic,
+            "page_count": d.page_count,
+            "file_size_mb": d.file_size_mb,
+            "date_uploaded": d.date_uploaded.isoformat()
+        } for d in docs]
+        
+        # Cache the result
+        cache.set_document_list(result, topic)
+        
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error retrieving documents: {str(e)}")
+    finally:
+        db.close()
 
 @router.delete("/delete-document/{id}")
 def delete_document(id: int):
+    if id <= 0:
+        raise HTTPException(status_code=400, detail="Invalid document ID")
+    
     db: Session = SessionLocal()
-    doc = db.query(Document).filter(Document.id == id).first()
-    if not doc:
-        db.close()
-        raise HTTPException(status_code=404, detail="Document not found.")
-    # Delete file
-    pdf_path = os.path.abspath(os.path.join(os.path.dirname(__file__), f'../../data/pdfs/{doc.topic}/{doc.file_name}'))
-    if os.path.exists(pdf_path):
-        os.remove(pdf_path)
-    db.delete(doc)
-    db.commit()
-    db.close()
-    return {"status": "deleted", "id": id} 
+    try:
+        doc = db.query(Document).filter(Document.id == id).first()
+        if not doc:
+            raise HTTPException(status_code=404, detail="Document not found.")
+        
+        # Delete file
+        pdf_path = settings.PDF_DIR / doc.topic / doc.file_name
+        if pdf_path.exists():
+            try:
+                pdf_path.unlink()
+            except Exception as e:
+                raise HTTPException(status_code=500, detail=f"Error deleting file: {str(e)}")
+        
+        # Delete from database
+        db.delete(doc)
+        db.commit()
+        
+        return {"status": "deleted", "id": id, "file_name": doc.file_name}
+        
+    except HTTPException:
+        db.rollback()
+        raise
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Error deleting document: {str(e)}")
+    finally:
+        db.close() 

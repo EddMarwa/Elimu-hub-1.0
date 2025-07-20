@@ -1,11 +1,12 @@
 import subprocess
 import os
+from app.config import settings
 
 class LLMService:
     def __init__(self, model_path=None, llama_cpp_path=None, llm_name=None):
-        self.model_path = model_path or os.environ.get("LLM_MODEL_PATH", "./models/mistral-7b.Q4_K_M.gguf")
-        self.llama_cpp_path = llama_cpp_path or os.environ.get("LLAMA_CPP_PATH", "/usr/local/bin/llama.cpp")
-        self.llm_name = llm_name or os.environ.get("LLM_NAME", "Mistral 7B")
+        self.model_path = model_path or settings.LLM_MODEL_PATH
+        self.llama_cpp_path = llama_cpp_path or settings.LLAMA_CPP_PATH
+        self.llm_name = llm_name or settings.LLM_NAME
 
     def call_llm(self, prompt, max_tokens=512, temp=0.2):
         cmd = [
@@ -19,5 +20,9 @@ class LLMService:
             result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
             result.check_returncode()
             return result.stdout.strip()
+        except subprocess.TimeoutExpired:
+            return "[LLM ERROR] Request timed out"
+        except subprocess.CalledProcessError as e:
+            return f"[LLM ERROR] Process failed: {e.stderr}"
         except Exception as e:
             return f"[LLM ERROR] {str(e)}" 
