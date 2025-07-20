@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+PyMuPDF>=1.23.0
+python-multipart
+chromadb
+sentence-transformers 

@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pymupdf
+sentence-transformers
+chromadb
+langchain
+python-multipart
+pydantic
+httpx
+# For subprocess LLM call
+# No pip install for llama.cpp, just ensure it's built and available 
