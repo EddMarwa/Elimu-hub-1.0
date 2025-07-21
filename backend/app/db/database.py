@@ -1,5 +1,5 @@
 import os
-from sqlalchemy import create_engine, Column, Integer, String, Float, Text, DateTime
+from sqlalchemy import create_engine, Column, Integer, String, Float, Text, DateTime, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from contextlib import contextmanager
@@ -26,6 +26,13 @@ class Document(Base):
     page_count = Column(Integer, nullable=False)
     file_size_mb = Column(Float, nullable=False)
     date_uploaded = Column(DateTime, default=datetime.utcnow)
+
+class Topic(Base):
+    __tablename__ = "topics"
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, unique=True, nullable=False, index=True)
+    description = Column(Text, nullable=True)
+    is_active = Column(Boolean, default=True)
 
 # Import all models to ensure they're included in table creation
 from app.auth.models import User
