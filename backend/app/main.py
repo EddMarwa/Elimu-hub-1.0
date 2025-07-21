@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from app.api import ingest, documents, chat, auth, chat_history, jobs, ws_chat, search, analytics, upload_progress, advanced_search, export_import
+from app.api import ingest, documents, chat, auth, chat_history, jobs, ws_chat, search, analytics, upload_progress, advanced_search, export_import, llm, admin
 from app.config import settings
 from app.utils.logger import logger
 from app.middleware.rate_limit import rate_limit_middleware
@@ -89,6 +89,8 @@ app.include_router(analytics.router, prefix="/api/v1", tags=["analytics"])
 app.include_router(upload_progress.router, tags=["upload-progress"])
 app.include_router(advanced_search.router, prefix="/api/v1", tags=["advanced-search"])
 app.include_router(export_import.router, prefix="/api/v1", tags=["export-import"])
+app.include_router(llm.router, prefix="/api/v1", tags=["llm"])
+app.include_router(admin.router, prefix="/api/v1", tags=["admin"])
 
 @app.get("/")
 async def root():
