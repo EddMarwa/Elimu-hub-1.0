@@ -1,6 +1,6 @@
-from fastapi import APIRouter, UploadFile, File, HTTPException, Depends, status
+from fastapi import APIRouter, UploadFile, File, HTTPException, Depends, status, Form
 from sqlalchemy.orm import Session
-from app.db.database import SessionLocal, Document
+from app.db.database import SessionLocal, Document, Topic
 from app.auth.dependencies import get_current_active_user
 from app.auth.models import User
 from app.services.embedding_service import EmbeddingService
@@ -26,17 +26,20 @@ router = APIRouter()
 
 @router.post("/ingest")
 async def ingest_document(
+    topic_id: int = Form(...),
     file: UploadFile = File(...),
     current_user: User = Depends(get_current_active_user)
 ):
     """Ingest a PDF document."""
+    db: Session = SessionLocal()
     try:
+        # Validate topic
+        topic = db.query(Topic).filter(Topic.id == topic_id, Topic.is_active == True).first()
+        if not topic:
+            raise HTTPException(status_code=400, detail="Invalid topic ID")
         # Validate file
         if not file.filename.endswith('.pdf'):
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Only PDF files are supported"
-            )
+            raise HTTPException(status_code=400, detail="Only PDF files are supported")
         
         # Create job for processing
         job_id = str(uuid.uuid4())
@@ -51,7 +54,7 @@ async def ingest_document(
         job_queue.submit_job(
             job_id=job_id,
             func=process_ingest_job,
-            args=(temp_path, current_user.id, job_id)
+            args=(temp_path, current_user.id, job_id, topic.name)
         )
         
         # Log user activity
@@ -64,17 +67,21 @@ async def ingest_document(
         return {
             "message": "Document uploaded successfully",
             "job_id": job_id,
-            "status": "pending"
+            "status": "pending",
+            "topic": topic.name
         }
         
     except Exception as e:
+        db.rollback()
         logger.error(f"Error ingesting document: {e}")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Failed to ingest document"
+            detail=f"Failed to ingest document: {str(e)}"
         )
+    finally:
+        db.close()
 
-async def process_ingest_job(file_path: str, user_id: int, job_id: str):
+async def process_ingest_job(file_path: str, user_id: int, job_id: str, topic_name: str):
     """Process document ingestion with progress tracking."""
     try:
         # Send initial progress

@@ -1,6 +1,6 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Body
 from sqlalchemy.orm import Session
-from app.db.database import SessionLocal, Document
+from app.db.database import SessionLocal, Document, Topic
 from app.config import settings
 import os
 from typing import List
@@ -69,6 +69,80 @@ def list_documents_by_topic(topic: str):
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error retrieving documents: {str(e)}")
+    finally:
+        db.close()
+
+@router.get("/list-topics")
+def list_topics():
+    db: Session = SessionLocal()
+    try:
+        topics = db.query(Topic).filter(Topic.is_active == True).all()
+        topic_list = [{"id": t.id, "name": t.name, "description": t.description} for t in topics]
+        return {"topics": topic_list, "count": len(topic_list)}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error retrieving topics: {str(e)}")
+    finally:
+        db.close()
+
+@router.post("/subjects")
+def create_subject(
+    name: str = Body(..., embed=True),
+    description: str = Body("", embed=True)
+):
+    db: Session = SessionLocal()
+    try:
+        exists = db.query(Topic).filter(Topic.name == name).first()
+        if exists:
+            raise HTTPException(status_code=400, detail="Subject already exists")
+        topic = Topic(name=name, description=description)
+        db.add(topic)
+        db.commit()
+        db.refresh(topic)
+        return {"id": topic.id, "name": topic.name, "description": topic.description}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Error creating subject: {str(e)}")
+    finally:
+        db.close()
+
+@router.put("/subjects/{topic_id}")
+def edit_subject(
+    topic_id: int,
+    name: str = Body(..., embed=True),
+    description: str = Body("", embed=True)
+):
+    db: Session = SessionLocal()
+    try:
+        topic = db.query(Topic).filter(Topic.id == topic_id).first()
+        if not topic:
+            raise HTTPException(status_code=404, detail="Subject not found")
+        topic.name = name
+        topic.description = description
+        db.commit()
+        return {"id": topic.id, "name": topic.name, "description": topic.description}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Error editing subject: {str(e)}")
+    finally:
+        db.close()
+
+@router.delete("/subjects/{topic_id}")
+def delete_subject(topic_id: int):
+    db: Session = SessionLocal()
+    try:
+        topic = db.query(Topic).filter(Topic.id == topic_id).first()
+        if not topic:
+            raise HTTPException(status_code=404, detail="Subject not found")
+        # Optionally, delete all documents under this topic
+        docs = db.query(Document).filter(Document.topic == topic.name).all()
+        for doc in docs:
+            db.delete(doc)
+        db.delete(topic)
+        db.commit()
+        return {"message": f"Subject '{topic.name}' and all its documents deleted"}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Error deleting subject: {str(e)}")
     finally:
         db.close()
 
