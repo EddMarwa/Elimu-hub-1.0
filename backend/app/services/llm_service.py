@@ -1,28 +1,30 @@
-import subprocess
+import requests
 import os
-from app.config import settings
 
 class LLMService:
-    def __init__(self, model_path=None, llama_cpp_path=None, llm_name=None):
-        self.model_path = model_path or settings.LLM_MODEL_PATH
-        self.llama_cpp_path = llama_cpp_path or settings.LLAMA_CPP_PATH
-        self.llm_name = llm_name or settings.LLM_NAME
+    def __init__(self, model="mixtral-8x7b-32768"):
+        self.api_key = os.getenv("GROQ_API_KEY", "")
+        self.model = os.getenv("GROQ_MODEL", model)
+        self.api_url = "https://api.groq.com/openai/v1/chat/completions"
 
-    def call_llm(self, prompt, max_tokens=512, temp=0.2):
-        cmd = [
-            self.llama_cpp_path,
-            "-m", self.model_path,
-            "-p", prompt,
-            "--temp", str(temp),
-            "-n", str(max_tokens)
-        ]
+    def call_llm(self, prompt, max_tokens=512, temp=0.7):
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json"
+        }
+        payload = {
+            "model": self.model,
+            "messages": [
+                {"role": "system", "content": "You are a helpful AI assistant."},
+                {"role": "user", "content": prompt}
+            ],
+            "max_tokens": max_tokens,
+            "temperature": temp
+        }
         try:
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
-            result.check_returncode()
-            return result.stdout.strip()
-        except subprocess.TimeoutExpired:
-            return "[LLM ERROR] Request timed out"
-        except subprocess.CalledProcessError as e:
-            return f"[LLM ERROR] Process failed: {e.stderr}"
+            response = requests.post(self.api_url, headers=headers, json=payload, timeout=60)
+            response.raise_for_status()
+            data = response.json()
+            return data["choices"][0]["message"]["content"].strip()
         except Exception as e:
             return f"[LLM ERROR] {str(e)}" 

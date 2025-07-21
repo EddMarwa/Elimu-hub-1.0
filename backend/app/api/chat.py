@@ -1,4 +1,5 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, Request
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from app.db.database import get_db
@@ -16,6 +17,34 @@ import time
 import json
 
 router = APIRouter()
+
+# --- List Topics Endpoint ---
+@router.get("/list-topics")
+def list_topics():
+    # Replace with DB query if you have a Topic model
+    return {"topics": [
+        {"id": 1, "name": "Mathematics"},
+        {"id": 2, "name": "Science"},
+        {"id": 3, "name": "English"},
+        {"id": 4, "name": "History"},
+        {"id": 5, "name": "Kiswahili"}
+    ]}
+
+# --- OpenAI-compatible LLM Chat Completions Endpoint ---
+@router.post("/llm/chat/completions")
+async def llm_chat_completions(request: Request):
+    data = await request.json()
+    messages = data.get("messages", [])
+    prompt = ""
+    for msg in messages:
+        if msg["role"] == "user":
+            prompt += msg["content"] + "\n"
+    llm = LLMService()
+    answer = llm.call_llm(prompt)
+    return JSONResponse(content={
+        "choices": [{"message": {"content": answer}}],
+        "usage": {"total_tokens": len(prompt.split())}
+    })
 
 class ChatRequest(BaseModel):
     question: str = Field(..., min_length=1, max_length=1000, description="The question to ask")
@@ -122,6 +151,13 @@ async def chat(
             logger.debug("Generating LLM response")
             answer = await run_in_threadpool(llm.call_llm, prompt)
             
+            # Fallback if LLM response is empty/null/undefined
+            if not answer or not str(answer).strip():
+                return JSONResponse(content={
+                    "status": "fallback",
+                    "message": f"I'm currently unable to answer your question about '{req.question}'. Please try again later."
+                })
+
             # Calculate confidence based on distance
             confidence = 1.0 - distances[0] if distances else None
             used_context = docs
@@ -165,4 +201,7 @@ async def chat(
     except Exception as e:
         db.rollback()
         logger.error(f"Error processing chat request for user {current_user.email}: {str(e)}", exc_info=True)
-        raise HTTPException(status_code=500, detail=f"Error processing chat request: {str(e)}") 
+        return JSONResponse(content={
+            "status": "fallback",
+            "message": f"I'm currently unable to answer your question about '{req.question}'. Please try again later."
+        }) 

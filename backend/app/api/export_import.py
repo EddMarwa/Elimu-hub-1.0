@@ -2,8 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status, UploadFile, File
 from fastapi.responses import StreamingResponse
 from app.auth.dependencies import get_current_admin_user
 from app.auth.models import User
-from app.db.database import SessionLocal
-from app.models.document import Document
+from app.db.database import SessionLocal, Document
 from app.models.chat import ChatSession, ChatMessage
 from app.utils.logger import logger
 import json

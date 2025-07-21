@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status, Query
 from app.auth.dependencies import get_current_user
 from app.auth.models import User
 from app.db.database import SessionLocal
-from app.models.document import Document
+from app.db.database import Document
 from app.services.vector_store import vector_store
 from app.services.cache import cache_service
 from app.utils.logger import logger

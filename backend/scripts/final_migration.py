@@ -8,26 +8,15 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from app.db.database import engine, Base, SessionLocal
+from app.db.database import engine, Base, SessionLocal, Document
 from app.auth.models import User
 from app.models.chat import ChatSession, ChatMessage
 from app.models.analytics import APIRequest, UserActivity, SystemMetrics
-from app.models.document import Document
 from app.db.fts import setup_fts
 from app.utils.logger import logger
 from sqlalchemy import text
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Text
 from sqlalchemy.sql import func
-
-class Document(Base):
-    __tablename__ = "documents"
-    
-    id = Column(Integer, primary_key=True)
-    title = Column(String(255), nullable=False)
-    content = Column(Text)
-    file_type = Column(String(50))
-    user_id = Column(Integer, ForeignKey("users.id"))
-    uploaded_at = Column(DateTime, default=func.now())
 
 def run_migration():
     """Run the final database migration."""

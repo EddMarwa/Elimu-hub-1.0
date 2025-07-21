@@ -1,26 +1,27 @@
-import os
 import chromadb
 from chromadb.config import Settings
-from app.config import settings
+from typing import List, Dict, Any
+import os
 
 class VectorStore:
-    def __init__(self, persist_directory=None):
-        if persist_directory is None:
-            persist_directory = str(settings.CHROMA_DIR)
+    def __init__(self, persist_directory: str = "./data/chroma/"):
         os.makedirs(persist_directory, exist_ok=True)
-        self.client = chromadb.PersistentClient(path=persist_directory, settings=Settings(allow_reset=True))
+        self.client = chromadb.Client(Settings(persist_directory=persist_directory))
+        self.persist_directory = persist_directory
 
-    def get_collection(self, topic):
+    def get_collection(self, topic: str):
         return self.client.get_or_create_collection(topic)
 
-    def add_chunks(self, topic, chunks, embeddings, metadatas):
+    def add_documents(self, topic: str, chunks: List[Dict], embeddings: List[Any]):
         collection = self.get_collection(topic)
-        ids = [f"{topic}_{i}" for i in range(len(chunks))]
-        collection.add(documents=chunks, embeddings=embeddings.tolist(), ids=ids, metadatas=metadatas)
+        ids = [f"{chunk['source_file']}_{chunk['page']}_{i}" for i, chunk in enumerate(chunks)]
+        metadatas = [{"source_file": chunk["source_file"], "page": chunk["page"]} for chunk in chunks]
+        documents = [chunk["text"] for chunk in chunks]
+        collection.add(documents=documents, embeddings=embeddings, ids=ids, metadatas=metadatas)
 
-    def similarity_search(self, topic, query_embedding, top_k=None):
-        if top_k is None:
-            top_k = settings.TOP_K_RESULTS
+    def query(self, topic: str, query_embedding: Any, top_k: int = 5):
         collection = self.get_collection(topic)
-        results = collection.query(query_embeddings=[query_embedding], n_results=top_k, include=['documents', 'metadatas', 'distances'])
-        return results 
+        results = collection.query(query_embeddings=[query_embedding], n_results=top_k, include=["documents", "metadatas", "distances"])
+        return results
+
+vector_store = VectorStore() 
