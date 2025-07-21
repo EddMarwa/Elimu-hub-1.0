@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from '@/contexts/AuthContext';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +16,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Elimu Hub AI",
-  description: "AI-powered educational platform",
+  description: "AI-powered educational platform for Kenyan education",
+  keywords: "AI, education, Kenya, learning, curriculum",
+  authors: [{ name: "Elimu Hub Team" }],
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({
@@ -28,7 +33,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning={true}
       >
-        {children}
+        <ErrorBoundary>
+          <AuthProvider>
+            {children}
+          </AuthProvider>
+        </ErrorBoundary>
       </body>
     </html>
   );

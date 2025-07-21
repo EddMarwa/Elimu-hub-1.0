@@ -1,10 +1,14 @@
 import Link from "next/link";
 import ClientOnly from "./components/ClientOnly";
 import AnimatedBackground from "./components/AnimatedBackground";
+import Navigation from "@/components/Navigation";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Navigation */}
+      <Navigation />
+      
       {/* Animated background elements - only render on client */}
       <ClientOnly>
         <AnimatedBackground />

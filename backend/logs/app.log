@@ -20,3 +20,38 @@
 2025-07-20 22:30:34,705 - elimu_hub - INFO - startup_event:77 - Environment: PRODUCTION
 2025-07-20 22:30:34,705 - elimu_hub - INFO - startup_event:78 - Log level: INFO
 2025-07-20 22:30:34,706 - elimu_hub - INFO - shutdown_event:82 - Shutting down Elimu Hub API...
+2025-07-21 14:22:26,500 - elimu_hub - INFO - run_migrations:18 - Starting database migration...
+2025-07-21 14:22:26,505 - elimu_hub - INFO - run_migrations:23 - Database migration completed successfully
+2025-07-21 14:22:26,513 - elimu_hub - INFO - run_migrations:30 - Available tables: documents, topics
+2025-07-21 14:22:26,513 - elimu_hub - ERROR - run_migrations:37 - Missing tables: users, chat_sessions, chat_messages
+2025-07-21 14:24:36,846 - elimu_hub - ERROR - create_admin_user:52 - Error creating admin user: (sqlite3.OperationalError) no such table: users
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.is_admin AS users_is_admin, users.created_at AS users_created_at, users.last_login AS users_last_login 
+FROM users 
+WHERE users.email = ? OR users.username = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('edd@elimuhub.com', 'Edlimu', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-07-21 14:25:15,967 - elimu_hub - INFO - main:118 - Starting complete database setup...
+2025-07-21 14:25:15,969 - elimu_hub - ERROR - create_all_tables:38 - Error creating tables: cannot import name 'Document' from 'app.models.document' (C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\models\document.py)
+2025-07-21 14:25:15,970 - elimu_hub - ERROR - main:126 - Failed to create tables
+2025-07-21 14:28:58,497 - elimu_hub - ERROR - create_admin_user:52 - Error creating admin user: (sqlite3.OperationalError) no such table: users
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.is_admin AS users_is_admin, users.created_at AS users_created_at, users.last_login AS users_last_login 
+FROM users 
+WHERE users.email = ? OR users.username = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('edd@elimuhub.com', 'EddAdmin', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-07-21 14:35:06,297 - elimu_hub - INFO - create_admin_user:47 - Admin user created successfully: edd@gmail.com
+2025-07-21 14:39:40,803 - elimu_hub - INFO - create_admin_user:47 - Admin user created successfully: admin@elimuhub.com
+2025-07-21 14:40:23,467 - root - INFO - start.py:71 - Starting Elimu Hub Backend...
+2025-07-21 14:40:23,468 - root - INFO - start.py:72 - Environment: development
+2025-07-21 14:40:23,468 - root - INFO - start.py:73 - Debug mode: True
+2025-07-21 14:40:23,468 - root - INFO - start.py:74 - Host: 0.0.0.0:8000
+2025-07-21 14:40:23,469 - root - INFO - start.py:20 - Checking dependencies...
+2025-07-21 14:40:23,510 - root - INFO - start.py:38 - Setting up database...
+2025-07-21 14:40:24,964 - root - INFO - start.py:55 - Running database migrations...
+2025-07-21 14:40:26,443 - elimu_hub - INFO - run_migrations:18 - Starting database migration...
+2025-07-21 14:40:26,445 - elimu_hub - INFO - run_migrations:23 - Database migration completed successfully
+2025-07-21 14:40:26,446 - elimu_hub - INFO - run_migrations:30 - Available tables: documents, topics, users
+2025-07-21 14:40:26,447 - elimu_hub - ERROR - run_migrations:37 - Missing tables: chat_sessions, chat_messages
+2025-07-21 14:40:26,650 - root - INFO - start.py:100 - Starting FastAPI server...

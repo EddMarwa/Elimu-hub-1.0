@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from app.api import ingest, documents, chat, auth, chat_history, jobs, ws_chat, search, analytics, upload_progress, advanced_search, export_import, llm, admin
+from app.api import ingest, documents, chat, auth, chat_history, jobs, ws_chat, search, analytics, upload_progress, advanced_search, export_import, llm, admin, health
 from app.config import settings
 from app.utils.logger import logger
 from app.middleware.rate_limit import rate_limit_middleware
@@ -77,6 +77,7 @@ async def global_exception_handler(request: Request, exc: Exception):
     )
 
 # Include routers
+app.include_router(health.router, tags=["health"])
 app.include_router(auth.router, prefix="/api/v1/auth", tags=["authentication"])
 app.include_router(ingest.router, prefix="/api/v1", tags=["ingest"])
 app.include_router(documents.router, prefix="/api/v1", tags=["documents"])

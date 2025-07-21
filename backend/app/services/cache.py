@@ -106,4 +106,5 @@ class RedisCache:
         self.clear_prefix("documents")
 
 # Global cache instance
-cache = RedisCache() 
+cache = RedisCache()
+cache_service = cache 
