@@ -20,12 +20,20 @@ export default function Home() {
         <p className="max-w-xl text-center text-lg sm:text-2xl text-white mb-8 drop-shadow-md">
           Empowering Kenyan education with AI. Curriculum-aligned answers, lesson planning, and personalized learning for teachers and students.
         </p>
-        <Link
-          href="/chat"
-          className="inline-block rounded-full bg-green-700 hover:bg-yellow-500 transition-colors text-white font-semibold px-8 py-3 text-lg shadow-lg"
-        >
-          Get Early Access
-        </Link>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Link
+            href="/ai"
+            className="inline-block rounded-full bg-blue-600 hover:bg-blue-700 transition-colors text-white font-semibold px-8 py-3 text-lg shadow-lg"
+          >
+            Try Generative AI
+          </Link>
+          <Link
+            href="/chat"
+            className="inline-block rounded-full bg-green-700 hover:bg-green-800 transition-colors text-white font-semibold px-8 py-3 text-lg shadow-lg"
+          >
+            Knowledge Chat
+          </Link>
+        </div>
       </main>
       {/* Subtle grid overlay (not visible, just for layout) */}
       {/* You can add more sections below as needed */}

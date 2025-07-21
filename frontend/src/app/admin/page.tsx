@@ -1,52 +1,68 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import AdminCard from "@/components/AdminCard";
-import AdminChart from "@/components/AdminChart";
-import { useRouter } from "next/navigation";
-import { useFetch } from "@/hooks/useFetch";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8000/api/v1";
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import AdminDashboard from '../../components/AdminDashboard';
 
-export default function AdminDashboard() {
-  const [summary, setSummary] = useState<any>(null);
-  const [chartData, setChartData] = useState<any[]>([]);
+export default function AdminPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
-  const { data: topics, loading: topicsLoading } = useFetch<{ topics: { id: number; name: string }[] }>(`${API_BASE}/list-topics`, []);
-  const [selectedTopicId, setSelectedTopicId] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch(`${API_BASE}/analytics/summary?hours=24`)
-      .then((res) => res.json())
-      .then(setSummary);
-    fetch(`${API_BASE}/analytics/summary?hours=24`)
-      .then((res) => res.json())
-      .then((data) => {
-        setChartData(
-          (data.top_endpoints || []).map((ep: any) => ({
-            endpoint: ep.endpoint,
-            count: ep.count,
-          }))
-        );
-      });
-  }, []);
+    const checkAuth = async () => {
+      const token = localStorage.getItem('access_token');
+      if (!token) {
+        router.push('/login');
+        return;
+      }
 
-  useEffect(() => {
-    if (topics && topics.topics.length > 0 && selectedTopicId === null) {
-      setSelectedTopicId(topics.topics[0].id);
-    }
-  }, [topics]);
+      try {
+        // Check if user is admin
+        const response = await fetch('http://localhost:8000/api/v1/auth/me', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
 
-  return (
-    <div className="min-h-screen py-8 px-4 md:px-16" style={{ background: "var(--background)", color: "var(--foreground)" }}>
-      <h1 className="text-3xl font-bold mb-8">Admin Dashboard</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-        <AdminCard title="Subjects" value={summary?.unique_subjects ?? "-"} onClick={() => router.push("/admin/subjects")} />
-        <AdminCard title="Documents" value={summary?.total_documents ?? "-"} onClick={() => router.push("/admin/documents")} />
-        <AdminCard title="API Requests (24h)" value={summary?.total_requests ?? "-"} />
+        if (response.ok) {
+          const user = await response.json();
+          if (user.is_admin) {
+            setIsAuthenticated(true);
+            setIsAdmin(true);
+          } else {
+            alert('Access denied. Admin privileges required.');
+            router.push('/');
+          }
+        } else {
+          router.push('/login');
+        }
+      } catch (error) {
+        console.error('Auth check failed:', error);
+        router.push('/login');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    checkAuth();
+  }, [router]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="h-8 w-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-600">Checking permissions...</p>
+        </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <AdminChart data={chartData} xKey="endpoint" yKey="count" title="Top API Endpoints" />
-      </div>
-    </div>
-  );
-} 
+    );
+  }
+
+  if (!isAuthenticated || !isAdmin) {
+    return null;
+  }
+
+  return <AdminDashboard />;
+}
