@@ -16,16 +16,10 @@ export default function ChatInterface() {
   // Real AI response function using backend API
   const generateAIResponse = async (userMessage: string): Promise<string> => {
     try {
-      const token = localStorage.getItem('access_token')
-      if (!token) {
-        return "Please log in to use the chat feature."
-      }
-
       const response = await fetch('http://localhost:8000/api/v1/chat', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           question: userMessage,
@@ -34,9 +28,6 @@ export default function ChatInterface() {
       })
 
       if (!response.ok) {
-        if (response.status === 401) {
-          return "Your session has expired. Please log in again."
-        }
         throw new Error(`HTTP error! status: ${response.status}`)
       }
 
