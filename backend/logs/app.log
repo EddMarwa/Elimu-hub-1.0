@@ -1919,3 +1919,76 @@ Let's break it down to u...
 2025-07-22 18:50:04,201 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
 2025-07-22 18:50:04,201 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
 2025-07-22 18:50:04,204 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
+2025-07-22 20:09:17,310 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 20:09:17,311 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 20:09:17,311 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 20:09:17,313 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 20:09:17,315 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 20:09:17,316 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 20:09:17,317 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 20:09:17,317 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 20:09:17,318 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 20:09:17,318 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 20:09:17,319 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 20:09:17,319 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 20:09:17,328 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-documents
+2025-07-22 20:09:17,329 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/auth/login
+2025-07-22 20:09:17,331 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.002s
+2025-07-22 20:09:17,335 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:09:17,337 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.008s
+2025-07-22 20:09:17,337 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:09:17,652 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 20:09:17,653 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.001s
+2025-07-22 20:09:17,653 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:09:55,988 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-documents?id=04e80880-7c68-4217-aecd-29c2fdbdefa7&vscodeBrowserReqId=1753204195681
+2025-07-22 20:09:55,989 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.002s
+2025-07-22 20:09:55,990 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:10:12,823 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/search-documents?q=test&limit=5&id=04e80880-7c68-4217-aecd-29c2fdbdefa7&vscodeBrowserReqId=1753204212818
+2025-07-22 20:10:12,825 - elimu_hub - INFO - search_documents_api:16 - Searched documents: 'test' (0 results)
+2025-07-22 20:10:12,826 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.003s
+2025-07-22 20:10:12,827 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:11:29,105 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 20:11:29,106 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.002s
+2025-07-22 20:11:29,107 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:11:31,024 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 20:11:31,025 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.001s
+2025-07-22 20:11:31,025 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:11:42,416 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 20:11:42,417 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.001s
+2025-07-22 20:11:42,417 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:11:43,248 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 20:11:43,249 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.001s
+2025-07-22 20:11:43,249 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:11:43,476 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 20:11:43,477 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.001s
+2025-07-22 20:11:43,477 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:11:44,028 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 20:11:44,029 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.001s
+2025-07-22 20:11:44,029 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:11:44,246 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 20:11:44,247 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.001s
+2025-07-22 20:11:44,247 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:12:04,505 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 20:12:04,505 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.001s
+2025-07-22 20:12:04,506 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:12:21,097 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 20:12:21,100 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.003s
+2025-07-22 20:12:21,100 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:12:21,103 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 20:12:21,107 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.004s
+2025-07-22 20:12:21,107 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:12:25,101 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 20:12:25,102 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.001s
+2025-07-22 20:12:25,102 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:12:25,104 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 20:12:28,506 - elimu_hub - INFO - log_requests:43 - Response: 200 - 3.402s
+2025-07-22 20:12:28,507 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:13:00,443 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 20:13:08,041 - elimu_hub - INFO - log_requests:43 - Response: 200 - 7.598s
+2025-07-22 20:13:08,041 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:13:49,897 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/auth/login
+2025-07-22 20:13:49,898 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.001s
+2025-07-22 20:13:49,898 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 20:13:49,901 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 20:13:49,902 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.001s
+2025-07-22 20:13:49,902 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
