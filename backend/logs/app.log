@@ -2414,3 +2414,23 @@ Kenya is a country located in East Africa, known for its rich cultural heritage.
 2025-07-22 22:29:51,603 - elimu_hub - INFO - chat:148 - Chat response generated successfully in 10.342s
 2025-07-22 22:29:51,604 - elimu_hub - INFO - log_requests:43 - Response: 200 - 10.345s
 2025-07-22 22:29:51,604 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:31:33,650 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 22:31:33,669 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.019s
+2025-07-22 22:31:33,670 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:31:33,674 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 22:31:33,677 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.003s
+2025-07-22 22:31:33,677 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:31:39,866 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 22:31:39,868 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.001s
+2025-07-22 22:31:39,868 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:31:39,873 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 22:31:45,097 - elimu_hub - INFO - log_requests:43 - Response: 200 - 5.224s
+2025-07-22 22:31:45,098 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:32:00,183 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/llm/completions
+2025-07-22 22:32:00,184 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.001s
+2025-07-22 22:32:00,185 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:32:00,501 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/completions
+2025-07-22 22:32:00,509 - elimu_hub - INFO - create_completion:36 - LLM completion requested
+2025-07-22 22:32:14,162 - elimu_hub - INFO - create_completion:66 - Completion generated successfully in 13.653s
+2025-07-22 22:32:14,164 - elimu_hub - INFO - log_requests:43 - Response: 200 - 13.662s
+2025-07-22 22:32:14,164 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
