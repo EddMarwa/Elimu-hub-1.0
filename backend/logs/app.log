@@ -290,3 +290,26 @@ mu Hub API...
 2025-07-22 16:30:53,069 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
 2025-07-22 16:30:53,069 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
 2025-07-22 16:30:53,072 - elimu_hub - INFO - shutdown_event:126 - Job queue stopped
+2025-07-22 16:31:16,209 - elimu_hub - INFO - startup_event:108 - Starting Elimu Hub API...
+2025-07-22 16:31:16,211 - elimu_hub - INFO - startup_event:109 - Environment: DEBUG
+2025-07-22 16:31:16,212 - elimu_hub - INFO - startup_event:110 - Log level: INFO
+2025-07-22 16:31:16,212 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 16:31:16,218 - elimu_hub - INFO - startup_event:108 - Starting Elimu Hub API...
+2025-07-22 16:31:16,217 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 16:31:16,220 - elimu_hub - INFO - startup_event:109 - Environment: DEBUG
+2025-07-22 16:31:16,223 - elimu_hub - INFO - startup_event:110 - Log level: INFO
+2025-07-22 16:31:16,223 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 16:31:16,223 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 16:31:16,225 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 16:31:16,225 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 16:31:16,226 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 16:31:16,227 - elimu_hub - INFO - startup_event:114 - Job queue started
+2025-07-22 16:31:16,227 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 16:31:16,228 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 16:31:16,229 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 16:31:16,230 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 16:31:16,230 - elimu_hub - INFO - startup_event:114 - Job queue started
+2025-07-22 16:31:16,231 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
+2025-07-22 16:31:16,231 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 16:31:16,233 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 16:31:16,234 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
