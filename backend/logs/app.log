@@ -2400,3 +2400,17 @@ As an educational assistant, I want to encourage you to develop your critical...
 2025-07-22 22:27:57,928 - elimu_hub - INFO - chat:148 - Chat response generated successfully in 11.832s
 2025-07-22 22:27:57,930 - elimu_hub - INFO - log_requests:43 - Response: 200 - 11.836s
 2025-07-22 22:27:57,930 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:29:32,825 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 22:29:32,830 - elimu_hub - INFO - log_requests:43 - Response: 422 - 0.005s
+2025-07-22 22:29:32,831 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:29:41,259 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 22:29:41,261 - elimu_hub - INFO - chat:83 - Chat request - Topic: Mathematics, Question: kenya...
+2025-07-22 22:29:41,262 - elimu_hub - INFO - chat:97 - Initialized LLM service with provider: groq, model: llama3-8b-8192
+2025-07-22 22:29:41,262 - elimu_hub - INFO - chat:101 - Searching for relevant context for topic: Mathematics
+2025-07-22 22:29:49,956 - elimu_hub - INFO - chat:115 - Found 0 relevant document chunks
+2025-07-22 22:29:51,602 - elimu_hub - INFO - chat:137 - LLM response received: Wonderful question!
+
+Kenya is a country located in East Africa, known for its rich cultural heritage...
+2025-07-22 22:29:51,603 - elimu_hub - INFO - chat:148 - Chat response generated successfully in 10.342s
+2025-07-22 22:29:51,604 - elimu_hub - INFO - log_requests:43 - Response: 200 - 10.345s
+2025-07-22 22:29:51,604 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
