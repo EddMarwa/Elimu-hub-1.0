@@ -1701,3 +1701,221 @@ sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'chat_
 2025-07-22 18:01:39,921 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
 2025-07-22 18:01:48,528 - elimu_hub - INFO - log_requests:43 - Response: 200 - 8.607s
 2025-07-22 18:01:48,529 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 18:04:20,774 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 18:04:20,774 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 18:04:20,774 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 18:04:20,774 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 18:04:20,775 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 18:04:20,775 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 18:04:20,776 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 18:04:20,777 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 18:04:20,777 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 18:04:20,777 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 18:04:20,779 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 18:04:20,779 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 18:04:27,052 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 18:04:30,964 - elimu_hub - INFO - log_requests:43 - Response: 200 - 3.912s
+2025-07-22 18:04:30,965 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 18:04:31,731 - elimu_hub - INFO - shutdown_event:120 - Shutting down Elimu Hub API...
+2025-07-22 18:04:31,731 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 18:04:31,839 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 18:04:31,870 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 18:04:31,871 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 18:04:31,871 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 18:04:31,873 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
+2025-07-22 18:04:42,598 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 18:04:42,598 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 18:04:42,599 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 18:04:42,599 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 18:04:42,600 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 18:04:42,602 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 18:04:42,603 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 18:04:42,604 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 18:04:42,605 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 18:04:42,605 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 18:04:42,607 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 18:04:42,607 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 18:04:47,707 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 18:04:50,459 - elimu_hub - INFO - log_requests:43 - Response: 200 - 2.752s
+2025-07-22 18:04:50,459 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 18:04:52,346 - elimu_hub - INFO - shutdown_event:120 - Shutting down Elimu Hub API...
+2025-07-22 18:04:52,346 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 18:04:52,672 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 18:04:52,672 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 18:04:52,672 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 18:04:52,687 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 18:04:52,689 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
+2025-07-22 18:05:03,655 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 18:05:03,655 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 18:05:03,656 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 18:05:03,656 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 18:05:03,657 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 18:05:03,657 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 18:05:03,658 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 18:05:03,659 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 18:05:03,659 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 18:05:03,659 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 18:05:03,660 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 18:05:03,660 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 18:05:03,662 - elimu_hub - INFO - shutdown_event:120 - Shutting down Elimu Hub API...
+2025-07-22 18:05:03,663 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 18:05:04,662 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 18:05:04,662 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 18:05:04,663 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 18:05:04,663 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 18:05:04,664 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
+2025-07-22 18:05:15,676 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 18:05:15,677 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 18:05:15,677 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 18:05:15,677 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 18:05:15,678 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 18:05:15,679 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 18:05:15,679 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 18:05:15,680 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 18:05:15,680 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 18:05:15,681 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 18:05:15,682 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 18:05:15,682 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 18:05:35,828 - elimu_hub - INFO - shutdown_event:120 - Shutting down Elimu Hub API...
+2025-07-22 18:05:35,828 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 18:05:35,842 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 18:05:36,797 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 18:05:36,798 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 18:05:36,798 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 18:05:36,800 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
+2025-07-22 18:05:47,396 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 18:05:47,396 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 18:05:47,396 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 18:05:47,396 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 18:05:47,397 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 18:05:47,398 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 18:05:47,398 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 18:05:47,399 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 18:05:47,400 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 18:05:47,400 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 18:05:47,401 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 18:05:47,402 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 18:05:49,140 - elimu_hub - INFO - shutdown_event:120 - Shutting down Elimu Hub API...
+2025-07-22 18:05:49,140 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 18:05:49,417 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 18:05:49,417 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 18:05:49,417 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 18:05:49,417 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 18:05:49,419 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
+2025-07-22 18:06:00,045 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 18:06:00,045 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 18:06:00,045 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 18:06:00,046 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 18:06:00,047 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 18:06:00,048 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 18:06:00,048 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 18:06:00,049 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 18:06:00,049 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 18:06:00,050 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 18:06:00,051 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 18:06:00,052 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 18:06:02,192 - elimu_hub - INFO - shutdown_event:120 - Shutting down Elimu Hub API...
+2025-07-22 18:06:02,192 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 18:06:03,067 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 18:06:03,068 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 18:06:03,083 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 18:06:03,084 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 18:06:03,085 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
+2025-07-22 18:06:13,813 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 18:06:13,814 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 18:06:13,814 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 18:06:13,814 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 18:06:13,815 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 18:06:13,816 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 18:06:13,816 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 18:06:13,817 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 18:06:13,817 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 18:06:13,817 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 18:06:13,819 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 18:06:13,819 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 18:06:27,880 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 18:06:27,888 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.008s
+2025-07-22 18:06:27,889 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 18:06:41,157 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 18:06:41,159 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.002s
+2025-07-22 18:06:41,160 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 18:07:02,809 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 18:07:02,810 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 18:07:02,810 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 18:07:02,810 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 18:07:02,811 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 18:07:02,811 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 18:07:02,811 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 18:07:02,812 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 18:07:02,812 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 18:07:02,813 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 18:07:02,814 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 18:07:02,814 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 18:07:11,867 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 18:07:11,869 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.002s
+2025-07-22 18:07:11,870 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 18:07:21,639 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics?id=95500e15-4b7c-423a-8f72-71ddf3da6387&vscodeBrowserReqId=1753196841325
+2025-07-22 18:07:21,641 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.002s
+2025-07-22 18:07:21,642 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 18:07:42,552 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/search-documents?q=test&limit=5
+2025-07-22 18:07:42,559 - elimu_hub - INFO - search_documents_api:16 - Searched documents: 'test' (0 results)
+2025-07-22 18:07:42,559 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.008s
+2025-07-22 18:07:42,560 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 18:08:37,677 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 18:08:37,679 - elimu_hub - INFO - chat:83 - Chat request - Topic: Science, Question: What is photosynthesis?...
+2025-07-22 18:08:37,679 - elimu_hub - INFO - chat:97 - Initialized LLM service with provider: openrouter, model: qwen/qwen-2.5-72b-instruct
+2025-07-22 18:08:37,680 - elimu_hub - INFO - chat:101 - Searching for relevant context for topic: Science
+2025-07-22 18:22:04,290 - elimu_hub - INFO - shutdown_event:120 - Shutting down Elimu Hub API...
+2025-07-22 18:22:04,291 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 18:22:04,321 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 18:22:04,378 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 18:22:05,238 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 18:22:05,266 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 18:22:05,269 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
+2025-07-22 18:22:17,069 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 18:22:17,069 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 18:22:17,069 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 18:22:17,069 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 18:22:17,070 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 18:22:17,071 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 18:22:17,071 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 18:22:17,072 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 18:22:17,072 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 18:22:17,072 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 18:22:17,074 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 18:22:17,074 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 18:49:25,578 - elimu_hub - INFO - chat:115 - Found 0 relevant document chunks
+2025-07-22 18:49:37,589 - elimu_hub - INFO - chat:137 - LLM response received: Of course! I'd be happy to help you understand photosynthesis.
+
+### What is Photosynthesis?
+
+Photosy...
+2025-07-22 18:49:37,590 - elimu_hub - INFO - chat:148 - Chat response generated successfully in 2459.911s
+2025-07-22 18:49:37,592 - elimu_hub - INFO - log_requests:43 - Response: 200 - 2459.915s
+2025-07-22 18:49:37,592 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 18:49:37,594 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/docs?id=95500e15-4b7c-423a-8f72-71ddf3da6387&vscodeBrowserReqId=1753198411890
+2025-07-22 18:49:37,595 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/test-llm?id=95500e15-4b7c-423a-8f72-71ddf3da6387&vscodeBrowserReqId=1753198417776
+2025-07-22 18:49:37,595 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 18:49:41,579 - elimu_hub - INFO - log_requests:43 - Response: 200 - 3.984s
+2025-07-22 18:49:41,579 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 18:49:41,580 - elimu_hub - INFO - log_requests:43 - Response: 200 - 3.985s
+2025-07-22 18:49:41,580 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 18:49:41,582 - elimu_hub - INFO - chat:83 - Chat request - Topic: Mathematics, Question: What is 2+2?...
+2025-07-22 18:49:41,582 - elimu_hub - INFO - chat:97 - Initialized LLM service with provider: openrouter, model: qwen/qwen-2.5-72b-instruct
+2025-07-22 18:49:41,582 - elimu_hub - INFO - chat:101 - Searching for relevant context for topic: Mathematics
+2025-07-22 18:49:49,558 - elimu_hub - INFO - chat:115 - Found 0 relevant document chunks
+2025-07-22 18:49:58,819 - elimu_hub - INFO - chat:137 - LLM response received: Absolutely! I'd be happy to help you with that.
+
+The answer to 2 + 2 is 4.
+
+Let's break it down to u...
+2025-07-22 18:49:58,820 - elimu_hub - INFO - chat:148 - Chat response generated successfully in 17.238s
+2025-07-22 18:49:58,820 - elimu_hub - INFO - log_requests:43 - Response: 200 - 21.226s
+2025-07-22 18:49:58,821 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 18:50:03,887 - elimu_hub - INFO - shutdown_event:120 - Shutting down Elimu Hub API...
+2025-07-22 18:50:03,887 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 18:50:04,200 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 18:50:04,200 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 18:50:04,201 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 18:50:04,201 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 18:50:04,204 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped

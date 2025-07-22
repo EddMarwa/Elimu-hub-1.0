@@ -36,13 +36,16 @@ async def test_llm():
 # --- List Topics Endpoint ---
 @router.get("/list-topics")
 def list_topics():
-    # Replace with DB query if you have a Topic model
+    """Get available topics for chat and document ingestion"""
     return {"topics": [
-        {"id": 1, "name": "Mathematics"},
-        {"id": 2, "name": "Science"},
-        {"id": 3, "name": "English"},
-        {"id": 4, "name": "History"},
-        {"id": 5, "name": "Kiswahili"}
+        {"id": 1, "name": "Mathematics", "description": "Math concepts, equations, and problem solving"},
+        {"id": 2, "name": "Science", "description": "Physics, Chemistry, Biology, and general science"},
+        {"id": 3, "name": "English", "description": "Literature, grammar, writing, and language arts"},
+        {"id": 4, "name": "History", "description": "Historical events, timelines, and cultural studies"},
+        {"id": 5, "name": "Kiswahili", "description": "Kiswahili language and literature"},
+        {"id": 6, "name": "Technology", "description": "Computer science, programming, and technology"},
+        {"id": 7, "name": "Geography", "description": "World geography, maps, and environmental studies"},
+        {"id": 8, "name": "Business", "description": "Business studies, economics, and entrepreneurship"}
     ]}
 
 # --- OpenAI-compatible LLM Chat Completions Endpoint ---
@@ -89,13 +92,47 @@ async def chat(req: ChatRequest):
             logger.warning("Empty topic received")
             raise HTTPException(status_code=400, detail="Topic cannot be empty")
 
-        # Initialize LLM service with OpenRouter
+        # Initialize services
         llm = LLMService(provider="openrouter")
         logger.info(f"Initialized LLM service with provider: {llm.provider}, model: {llm.model}")
         
-        # Call LLM directly for response (no authentication required)
-        logger.info("Calling LLM service directly for response")
-        answer = llm.call_llm_with_context(req.question, context_documents=None)
+        # Try to retrieve relevant context from knowledge base
+        try:
+            logger.info(f"Searching for relevant context for topic: {req.topic}")
+            vector_store = VectorStore()
+            embedding_service = EmbeddingService()
+            
+            # Generate embedding for the question
+            query_embedding = embedding_service.generate_embedding(req.question)
+            
+            # Search for relevant document chunks
+            context_documents = vector_store.search_similar(
+                query_embedding, 
+                topic_filter=req.topic,
+                top_k=3
+            )
+            
+            logger.info(f"Found {len(context_documents)} relevant document chunks")
+            
+            # Call LLM with context
+            answer = llm.call_llm_with_context(req.question, context_documents)
+            
+            # Extract sources from context documents
+            sources = []
+            used_context = []
+            if context_documents:
+                for doc in context_documents:
+                    if doc.get('source'):
+                        sources.append(doc['source'])
+                    if doc.get('content'):
+                        used_context.append(doc['content'][:200] + "..." if len(doc['content']) > 200 else doc['content'])
+                        
+        except Exception as search_error:
+            logger.warning(f"Vector search failed, falling back to direct LLM: {search_error}")
+            # Fallback to direct LLM call without context
+            answer = llm.call_llm_with_context(req.question, context_documents=None)
+            sources = []
+            used_context = []
         
         logger.info(f"LLM response received: {answer[:100]}...")
         
@@ -112,8 +149,8 @@ async def chat(req: ChatRequest):
         
         return ChatResponse(
             answer=answer,
-            sources=[],
-            used_context=[],
+            sources=sources,
+            used_context=used_context,
             llm=llm.model,
             confidence=1.0,
             session_id=None  # No session tracking without authentication

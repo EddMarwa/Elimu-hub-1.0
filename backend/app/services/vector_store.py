@@ -23,5 +23,58 @@ class VectorStore:
         collection = self.get_collection(topic)
         results = collection.query(query_embeddings=[query_embedding], n_results=top_k, include=["documents", "metadatas", "distances"])
         return results
+    
+    def search_similar(self, query_embedding: Any, topic_filter: str = None, top_k: int = 5):
+        """Search for similar documents across collections or specific topic"""
+        try:
+            if topic_filter:
+                # Search in specific topic collection
+                collection = self.get_collection(topic_filter)
+                results = collection.query(
+                    query_embeddings=[query_embedding], 
+                    n_results=top_k, 
+                    include=["documents", "metadatas", "distances"]
+                )
+                
+                # Format results
+                formatted_results = []
+                if results['documents'] and len(results['documents'][0]) > 0:
+                    for i, doc in enumerate(results['documents'][0]):
+                        formatted_results.append({
+                            'content': doc,
+                            'source': results['metadatas'][0][i].get('source_file', 'Unknown'),
+                            'page': results['metadatas'][0][i].get('page', 0),
+                            'score': 1 - results['distances'][0][i]  # Convert distance to similarity score
+                        })
+                return formatted_results
+            else:
+                # Search across all collections (topics)
+                all_results = []
+                collections = self.client.list_collections()
+                for collection_info in collections:
+                    collection = self.client.get_collection(collection_info.name)
+                    results = collection.query(
+                        query_embeddings=[query_embedding], 
+                        n_results=top_k, 
+                        include=["documents", "metadatas", "distances"]
+                    )
+                    
+                    if results['documents'] and len(results['documents'][0]) > 0:
+                        for i, doc in enumerate(results['documents'][0]):
+                            all_results.append({
+                                'content': doc,
+                                'source': results['metadatas'][0][i].get('source_file', 'Unknown'),
+                                'page': results['metadatas'][0][i].get('page', 0),
+                                'score': 1 - results['distances'][0][i],
+                                'topic': collection_info.name
+                            })
+                
+                # Sort by score and return top_k
+                all_results.sort(key=lambda x: x['score'], reverse=True)
+                return all_results[:top_k]
+                
+        except Exception as e:
+            print(f"Error in search_similar: {e}")
+            return []
 
 vector_store = VectorStore() 

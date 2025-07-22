@@ -18,4 +18,8 @@ class EmbeddingService:
         return self.splitter.split_text(text)
 
     def embed_texts(self, texts):
-        return self.model.encode(texts, show_progress_bar=True, convert_to_numpy=True) 
+        return self.model.encode(texts, show_progress_bar=True, convert_to_numpy=True)
+    
+    def generate_embedding(self, text):
+        """Generate embedding for a single text"""
+        return self.model.encode([text])[0] 
