@@ -7,7 +7,7 @@ from app.utils.logger import logger
 from app.middleware.rate_limit import rate_limit_middleware
 from app.services.job_queue import job_queue
 from app.db.fts import setup_fts
-from app.services.analytics import analytics
+from app.services.analytics import analytics as analytics_service
 import time
 
 app = FastAPI(

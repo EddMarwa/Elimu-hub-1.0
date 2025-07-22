@@ -104,7 +104,7 @@ async def chat(
         # Initialize services
         embedder = EmbeddingService()
         vector_store = VectorStore()
-        llm = LLMService()
+        llm = LLMService(provider="openrouter")  # Use OpenRouter with Qwen
         
         # Generate embeddings
         logger.debug("Generating question embeddings")
@@ -129,39 +129,53 @@ async def chat(
         # Check if we have relevant results
         if not docs or not metadatas or not distances:
             logger.warning(f"No documents found for topic: {req.topic}")
-            answer = "I don't have any documents in this topic to answer your question."
+            # Use LLM without context
+            answer = await run_in_threadpool(
+                llm.call_llm_with_context, 
+                req.question, 
+                context_documents=None
+            )
             sources = []
             used_context = []
             confidence = None
         elif distances[0] > settings.SIMILARITY_THRESHOLD:
             logger.warning(f"Best match distance ({distances[0]}) exceeds threshold ({settings.SIMILARITY_THRESHOLD})")
-            answer = "I don't have sufficient information to answer your question accurately."
+            # Use LLM without context
+            answer = await run_in_threadpool(
+                llm.call_llm_with_context, 
+                req.question, 
+                context_documents=None
+            )
             sources = []
             used_context = []
             confidence = None
         else:
-            # Prepare context and sources
-            context = "\n".join(docs)
-            sources = [f"{m.get('source_file','')}:page {m.get('page','')}" for m in metadatas]
+            # Prepare context documents
+            context_documents = [
+                {"content": doc, "metadata": meta} 
+                for doc, meta in zip(docs, metadatas)
+            ]
+            sources = [f"{m.get('source_file','Unknown')}:page {m.get('page','?')}" for m in metadatas]
             
-            # Generate prompt
-            prompt = f"Context:\n{context}\n\nQuestion: {req.question}\nAnswer:"
+            # Get LLM response with context
+            logger.debug("Generating LLM response with context")
+            answer = await run_in_threadpool(
+                llm.call_llm_with_context, 
+                req.question, 
+                context_documents=context_documents
+            )
             
-            # Get LLM response
-            logger.debug("Generating LLM response")
-            answer = await run_in_threadpool(llm.call_llm, prompt)
-            
-            # Fallback if LLM response is empty/null/undefined
-            if not answer or not str(answer).strip():
-                return JSONResponse(content={
-                    "status": "fallback",
-                    "message": f"I'm currently unable to answer your question about '{req.question}'. Please try again later."
-                })
-
             # Calculate confidence based on distance
             confidence = 1.0 - distances[0] if distances else None
             used_context = docs
         
+        # Fallback if LLM response is empty/null/undefined
+        if not answer or not str(answer).strip():
+            return JSONResponse(content={
+                "status": "error",
+                "message": f"I'm currently unable to answer your question about '{req.question}'. Please try again later."
+            })
+
         # Save user message to chat history
         user_message = ChatMessage(
             session_id=session.id,
@@ -178,20 +192,20 @@ async def chat(
             confidence=confidence,
             sources=json.dumps(sources) if sources else None,
             used_context=json.dumps(used_context) if used_context else None,
-            llm_model=llm.llm_name
+            llm_model=llm.model  # Use model instead of llm_name
         )
         db.add(assistant_message)
         
         db.commit()
         
         process_time = time.time() - start_time
-        logger.info(f"Chat response generated in {process_time:.3f}s - Confidence: {confidence:.3f}")
+        logger.info(f"Chat response generated in {process_time:.3f}s - Confidence: {confidence}")
         
         return ChatResponse(
             answer=answer,
             sources=sources,
             used_context=used_context,
-            llm=llm.llm_name,
+            llm=llm.model,  # Use model instead of llm_name
             confidence=confidence,
             session_id=session.id
         )

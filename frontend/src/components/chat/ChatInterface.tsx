@@ -13,42 +13,45 @@ export default function ChatInterface() {
   const [isLoading, setIsLoading] = useState(false)
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
 
-  // Mock AI response function
+  // Real AI response function using backend API
   const generateAIResponse = async (userMessage: string): Promise<string> => {
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    const responses = {
-      Mathematics: [
-        "In mathematics, this concept involves understanding the fundamental principles of algebra and geometry. Let me break this down step by step...",
-        "This is a great question about mathematical concepts! The key is to understand the underlying patterns and relationships...",
-        "For this mathematical problem, we need to apply the correct formula and follow the proper order of operations..."
-      ],
-      English: [
-        "In English, this grammar rule helps us communicate more effectively. Here's how it works...",
-        "This literary device enhances the meaning and creates a more engaging reading experience...",
-        "Understanding this English concept will improve your writing and comprehension skills..."
-      ],
-      Science: [
-        "In science, this phenomenon can be explained through the laws of physics and chemistry...",
-        "This scientific concept is fundamental to understanding how the natural world works...",
-        "Let's explore this scientific principle through experiments and observations..."
-      ],
-      Kiswahili: [
-        "Katika Kiswahili, hii kanuni ya sarufi inatusaidia kuwasiliana vizuri zaidi. Hapa kuna jinsi inavyofanya kazi...",
-        "Hii njia ya fasihi inaongeza maana na kuunda uzoefu wa kusoma unaovutia zaidi...",
-        "Kuelewa dhana hii ya Kiswahili itaboresha uandishi wako na uwezo wa kuelewa..."
-      ],
-      History: [
-        "In history, this event marked a significant turning point that shaped the course of events...",
-        "This historical period was characterized by major social and political changes...",
-        "Understanding this historical context helps us learn from the past and make better decisions..."
-      ]
+    try {
+      const token = localStorage.getItem('access_token')
+      if (!token) {
+        return "Please log in to use the chat feature."
+      }
+
+      const response = await fetch('http://localhost:8000/api/v1/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          question: userMessage,
+          topic: currentSubject
+        })
+      })
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          return "Your session has expired. Please log in again."
+        }
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+
+      const data = await response.json()
+      
+      if (data.status === 'error') {
+        return data.message || "I'm having trouble processing your request right now."
+      }
+
+      return data.answer || "I couldn't generate a response. Please try again."
+      
+    } catch (error) {
+      console.error('Error calling AI API:', error)
+      return "I'm experiencing technical difficulties. Please try again later."
     }
-    
-    const subjectResponses = responses[currentSubject]
-    const randomIndex = Math.floor(Math.random() * subjectResponses.length)
-    return subjectResponses[randomIndex]
   }
 
   const handleSendMessage = async (content: string) => {
@@ -128,6 +131,7 @@ export default function ChatInterface() {
         <button
           onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
           className="p-2 bg-white rounded-lg shadow-md border border-gray-200"
+          aria-label="Toggle sidebar"
         >
           <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />

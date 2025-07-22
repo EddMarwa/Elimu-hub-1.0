@@ -55,3 +55,238 @@ WHERE users.email = ? OR users.username = ?
 2025-07-21 14:40:26,446 - elimu_hub - INFO - run_migrations:30 - Available tables: documents, topics, users
 2025-07-21 14:40:26,447 - elimu_hub - ERROR - run_migrations:37 - Missing tables: chat_sessions, chat_messages
 2025-07-21 14:40:26,650 - root - INFO - start.py:100 - Starting FastAPI server...
+2025-07-22 16:19:47,921 - elimu_hub - INFO - startup_event:108 - Starting Elimu Hub API...
+2025-07-22 16:19:47,922 - elimu_hub - INFO - startup_event:109 - Environment: DEBUG
+2025-07-22 16:19:47,922 - elimu_hub - INFO - startup_event:110 - Log level: INFO
+2025-07-22 16:19:47,922 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 16:19:47,923 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 16:19:47,924 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 16:19:47,926 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 16:19:47,927 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 16:19:47,927 - elimu_hub - INFO - startup_event:114 - Job queue started
+2025-07-22 16:19:47,928 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 16:19:47,971 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 16:19:47,971 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
+2025-07-22 16:22:17,262 - elimu_hub - INFO - startup_event:108 - Starting Elimu Hub API...
+2025-07-22 16:22:17,263 - elimu_hub - INFO - startup_event:109 - Environment: DEBUG
+2025-07-22 16:22:17,264 - elimu_hub - INFO - startup_event:110 - Log level: INFO
+2025-07-22 16:22:17,264 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 16:22:17,269 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 16:22:17,272 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 16:22:17,273 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 16:22:17,274 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 16:22:17,275 - elimu_hub - INFO - startup_event:114 - Job queue started
+2025-07-22 16:22:17,275 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 16:22:17,278 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 16:22:17,279 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
+2025-07-22 16:22:53,727 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/health
+2025-07-22 16:22:54,756 - elimu_hub - INFO - log_requests:43 - Response: 200 - 1.029s
+2025-07-22 16:22:54,757 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:23:10,915 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 16:23:10,942 - elimu_hub - INFO - login:70 - Login attempt for email: admin@elimuhub.com
+2025-07-22 16:23:10,944 - elimu_hub - ERROR - authenticate_user:72 - Authentication error: '_GeneratorContextManager' object has no attribute 'query'
+2025-07-22 16:23:10,945 - elimu_hub - WARNING - login:74 - Failed login attempt for email: admin@elimuhub.com
+2025-07-22 16:23:10,946 - elimu_hub - INFO - log_requests:43 - Response: 401 - 0.031s
+2025-07-22 16:23:10,947 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:29:02,947 - elimu_hub - ERROR - create_admin_user:27 - User with email admin@elimuhub.com already exists
+2025-07-22 16:29:20,426 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 16:29:20,431 - elimu_hub - INFO - login:70 - Login attempt for email: admin@elimuhub.com
+2025-07-22 16:29:20,431 - elimu_hub - ERROR - authenticate_user:72 - Authentication error: '_GeneratorContextManager' object has no attribute 'query'
+2025-07-22 16:29:20,432 - elimu_hub - WARNING - login:74 - Failed login attempt for email: admin@elimuhub.com
+2025-07-22 16:29:20,433 - elimu_hub - INFO - log_requests:43 - Response: 401 - 0.007s
+2025-07-22 16:29:20,434 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:29:30,560 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/openapi.json
+2025-07-22 16:29:30,673 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.114s
+2025-07-22 16:29:30,677 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:29:44,758 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/register
+2025-07-22 16:29:44,766 - elimu_hub - INFO - register:16 - Registration attempt for email: test@elimuhub.com
+2025-07-22 16:29:44,767 - elimu_hub - ERROR - global_exception_handler:73 - Unhandled exception: '_GeneratorContextManager' object has no attribute 'query'
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 183, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ~~~~~~~~~~~~~~~~~~~~~~~^^
+  |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  |         "unhandled errors in a TaskGroup", self._exceptions
+  |     ) from None
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 182, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |                                    ~~~~~~~~~~~~~~~~~~^^
+    |   File "C:\Users\Edd\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 184, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\main.py", line 68, in rate_limit
+    |     return await rate_limit_middleware(request, call_next)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\middleware\rate_limit.py", line 77, in rate_limit_middleware
+    |     return await call_next(request)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 159, in call_next
+    |     raise app_exc
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 182, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |                                    ~~~~~~~~~~~~~~~~~~^^
+    |   File "C:\Users\Edd\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 184, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\main.py", line 39, in log_requests
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 159, in call_next
+    |     raise app_exc
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\routing.py", line 736, in app
+    |     await route.handle(scope, receive, send)
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    |     await self.app(scope, receive, send)
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\routing.py", line 78, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\routing.py", line 75, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\fastapi\routing.py", line 302, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     ...<3 lines>...
+    |     )
+    |     ^
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\fastapi\routing.py", line 213, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\api\auth.py", line 19, in register
+    |     existing_user = db.query(User).filter(
+    |                     ^^^^^^^^
+    | AttributeError: '_GeneratorContextManager' object has no attribute 'query'
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 182, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 184, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\main.py", line 68, in rate_limit
+    return await rate_limit_middleware(request, call_next)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\middleware\rate_limit.py", line 77, in rate_limit_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 159, in call_next
+    raise app_exc
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 182, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 184, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\main.py", line 39, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 159, in call_next
+    raise app_exc
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\starlette\routing.py", line 75, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\fastapi\routing.py", line 302, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\fastapi\routing.py", line 213, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\api\auth.py", line 19, in register
+    existing_user = db.query(User).filter(
+                    ^^^^^^^^
+AttributeError: '_GeneratorContextManager' object has no attribute 'query'
+2025-07-22 16:29:55,537 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/llm/models
+2025-07-22 16:29:55,539 - elimu_hub - INFO - log_requests:43 - Response: 403 - 0.002s
+2025-07-22 16:29:55,539 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:30:52,294 - elimu_hub - INFO - shutdown_event:122 - Shutting down Elimu Hub API...
+2025-07-22 16:30:52,295 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+mu Hub API...
+2025-07-22 16:30:52,295 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 16:30:52,595 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 16:30:52,707 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 16:30:52,707 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 16:30:52,707 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 16:30:52,707 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 16:30:52,707 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 16:30:52,717 - elimu_hub - INFO - shutdown_event:126 - Job queue stopped
+2025-07-22 16:30:53,069 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 16:30:53,069 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 16:30:53,072 - elimu_hub - INFO - shutdown_event:126 - Job queue stopped
