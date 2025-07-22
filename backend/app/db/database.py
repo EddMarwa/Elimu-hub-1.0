@@ -10,8 +10,18 @@ engine = create_engine(settings.DATABASE_URL, connect_args={"check_same_thread":
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
-@contextmanager
 def get_db():
+    """Get database session for FastAPI dependency injection."""
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+# Keep the context manager version for manual use
+@contextmanager
+def get_db_context():
+    """Get database session as context manager for manual use."""
     db = SessionLocal()
     try:
         yield db

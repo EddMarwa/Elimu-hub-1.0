@@ -1,8 +1,6 @@
-from fastapi import APIRouter, UploadFile, File, HTTPException, Depends, status, Form
+from fastapi import APIRouter, UploadFile, File, HTTPException, status, Form
 from sqlalchemy.orm import Session
 from app.db.database import SessionLocal, Document, Topic
-from app.auth.dependencies import get_current_active_user
-from app.auth.models import User
 from app.services.embedding_service import EmbeddingService
 from app.services.vector_store import VectorStore
 from app.config import settings
@@ -27,8 +25,7 @@ router = APIRouter()
 @router.post("/ingest")
 async def ingest_document(
     topic_id: int = Form(...),
-    file: UploadFile = File(...),
-    current_user: User = Depends(get_current_active_user)
+    file: UploadFile = File(...)
 ):
     """Ingest a PDF document."""
     db: Session = SessionLocal()
@@ -54,12 +51,12 @@ async def ingest_document(
         job_queue.submit_job(
             job_id=job_id,
             func=process_ingest_job,
-            args=(temp_path, current_user.id, job_id, topic.name)
+            args=(temp_path, 0, job_id, topic.name)  # Use dummy user_id 0
         )
         
-        # Log user activity
+        # Log activity (no user tracking)
         analytics.log_user_activity(
-            user_id=current_user.id,
+            user_id=0,  # Use dummy user_id 0
             activity_type="upload",
             details={"filename": file.filename, "job_id": job_id}
         )

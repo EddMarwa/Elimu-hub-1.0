@@ -313,3 +313,1391 @@ mu Hub API...
 2025-07-22 16:31:16,231 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
 2025-07-22 16:31:16,233 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
 2025-07-22 16:31:16,234 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
+2025-07-22 16:33:56,566 - elimu_hub - INFO - startup_event:108 - Starting Elimu Hub API...
+2025-07-22 16:33:56,566 - elimu_hub - INFO - startup_event:109 - Environment: DEBUG
+2025-07-22 16:33:56,567 - elimu_hub - INFO - startup_event:110 - Log level: INFO
+2025-07-22 16:33:56,567 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 16:33:56,569 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 16:33:56,574 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 16:33:56,578 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 16:33:56,579 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 16:33:56,579 - elimu_hub - INFO - startup_event:114 - Job queue started
+2025-07-22 16:33:56,580 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 16:33:56,583 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 16:33:56,584 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
+2025-07-22 16:34:13,599 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/health
+2025-07-22 16:34:14,621 - elimu_hub - INFO - log_requests:43 - Response: 200 - 1.022s
+2025-07-22 16:34:14,622 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:35:36,221 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 16:35:36,236 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.014s
+2025-07-22 16:35:36,236 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:35:36,242 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 16:35:36,247 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.005s
+2025-07-22 16:35:36,248 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:35:39,762 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 16:35:39,764 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.001s
+2025-07-22 16:35:39,764 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:35:39,770 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 16:35:41,259 - elimu_hub - INFO - log_requests:43 - Response: 200 - 1.490s
+2025-07-22 16:35:41,260 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:35:58,165 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/llm/completions
+2025-07-22 16:35:58,166 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.001s
+2025-07-22 16:35:58,167 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:35:58,171 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/completions
+2025-07-22 16:35:58,178 - elimu_hub - INFO - log_requests:43 - Response: 403 - 0.007s
+2025-07-22 16:35:58,181 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:36:04,225 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/chat
+2025-07-22 16:36:04,227 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.003s
+2025-07-22 16:36:04,229 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:36:04,254 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 16:36:04,275 - elimu_hub - INFO - log_requests:43 - Response: 403 - 0.022s
+2025-07-22 16:36:04,283 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:36:11,423 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 16:36:12,617 - elimu_hub - INFO - log_requests:43 - Response: 200 - 1.194s
+2025-07-22 16:36:12,617 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:36:43,729 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/auth/login
+2025-07-22 16:36:43,735 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.006s
+2025-07-22 16:36:43,737 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:36:44,060 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 16:36:44,083 - elimu_hub - INFO - login:70 - Login attempt for email: admin@elimuhub.com
+2025-07-22 16:36:44,083 - elimu_hub - ERROR - authenticate_user:72 - Authentication error: '_GeneratorContextManager' object has no attribute 'query'
+2025-07-22 16:36:44,084 - elimu_hub - WARNING - login:74 - Failed login attempt for email: admin@elimuhub.com
+2025-07-22 16:36:44,085 - elimu_hub - INFO - log_requests:43 - Response: 401 - 0.024s
+2025-07-22 16:36:44,085 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:36:45,705 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 16:36:45,755 - elimu_hub - INFO - login:70 - Login attempt for email: admin@elimuhub.com
+2025-07-22 16:36:45,756 - elimu_hub - ERROR - authenticate_user:72 - Authentication error: '_GeneratorContextManager' object has no attribute 'query'
+2025-07-22 16:36:45,757 - elimu_hub - WARNING - login:74 - Failed login attempt for email: admin@elimuhub.com
+2025-07-22 16:36:45,758 - elimu_hub - INFO - log_requests:43 - Response: 401 - 0.053s
+2025-07-22 16:36:45,759 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:36:46,663 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 16:36:46,668 - elimu_hub - INFO - login:70 - Login attempt for email: admin@elimuhub.com
+2025-07-22 16:36:46,669 - elimu_hub - ERROR - authenticate_user:72 - Authentication error: '_GeneratorContextManager' object has no attribute 'query'
+2025-07-22 16:36:46,669 - elimu_hub - WARNING - login:74 - Failed login attempt for email: admin@elimuhub.com
+2025-07-22 16:36:46,670 - elimu_hub - INFO - log_requests:43 - Response: 401 - 0.007s
+2025-07-22 16:36:46,671 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:37:39,833 - elimu_hub - INFO - shutdown_event:122 - Shutting down Elimu Hub API...
+2025-07-22 16:37:39,834 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 16:37:40,523 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 16:37:40,558 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 16:37:40,610 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 16:37:40,645 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 16:37:40,652 - elimu_hub - INFO - shutdown_event:126 - Job queue stopped
+2025-07-22 16:38:04,414 - elimu_hub - INFO - startup_event:108 - Starting Elimu Hub API...
+2025-07-22 16:38:04,415 - elimu_hub - INFO - startup_event:109 - Environment: DEBUG
+2025-07-22 16:38:04,418 - elimu_hub - INFO - startup_event:110 - Log level: INFO
+2025-07-22 16:38:04,419 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 16:38:04,423 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 16:38:04,425 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 16:38:04,426 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 16:38:04,428 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 16:38:04,428 - elimu_hub - INFO - startup_event:114 - Job queue started
+2025-07-22 16:38:04,429 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 16:38:04,432 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 16:38:04,432 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
+2025-07-22 16:39:03,468 - elimu_hub - INFO - startup_event:108 - Starting Elimu Hub API...
+2025-07-22 16:39:03,469 - elimu_hub - INFO - startup_event:109 - Environment: DEBUG
+2025-07-22 16:39:03,470 - elimu_hub - INFO - startup_event:110 - Log level: INFO
+2025-07-22 16:39:03,472 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 16:39:03,477 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 16:39:03,479 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 16:39:03,480 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 16:39:03,482 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 16:39:03,482 - elimu_hub - INFO - startup_event:114 - Job queue started
+2025-07-22 16:39:03,483 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 16:39:03,486 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 16:39:03,487 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
+2025-07-22 16:39:51,344 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 16:39:51,368 - elimu_hub - INFO - login:70 - Login attempt for email: test@elimuhub.com
+2025-07-22 16:39:51,996 - elimu_hub - INFO - login:88 - User logged in successfully: test@elimuhub.com
+2025-07-22 16:39:52,001 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.657s
+2025-07-22 16:39:52,002 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:40:03,000 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 16:40:03,004 - elimu_hub - INFO - login:70 - Login attempt for email: test@elimuhub.com
+2025-07-22 16:40:03,663 - elimu_hub - INFO - login:88 - User logged in successfully: test@elimuhub.com
+2025-07-22 16:40:03,671 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.671s
+2025-07-22 16:40:03,677 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:40:03,701 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 16:40:03,715 - elimu_hub - INFO - chat:69 - User test@elimuhub.com chat request - Topic: Mathematics, Question: Hello, can you help me with mathematics?...
+2025-07-22 16:40:03,729 - elimu_hub - ERROR - chat:217 - Error processing chat request for user test@elimuhub.com: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+Traceback (most recent call last):
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\api\chat.py", line 100, in chat
+    db.commit()
+    ~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 76, in save_obj
+    for table, mapper in base_mapper._sorted_tables.items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4060, in _sorted_tables
+    sorted_ = sql_util.sort_tables(
+        table_to_mapper,
+        skip_fn=skip,
+        extra_dependencies=extra_dependencies,
+    )
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1316, in sort_tables
+    for (t, fkcs) in sort_tables_and_constraints(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tables,
+        ^^^^^^^
+    ...<2 lines>...
+        _warn_for_cycles=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1386, in sort_tables_and_constraints
+    filtered = filter_fn(fkc)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1306, in _skip_fn
+    if fixed_skip_fn(fk):
+       ~~~~~~~~~~~~~^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4043, in skip
+    dep = table_to_mapper.get(fk.column.table)
+                              ^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1226, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3199, in column
+    return self._resolve_column()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3222, in _resolve_column
+    raise exc.NoReferencedTableError(
+    ...<5 lines>...
+    )
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+2025-07-22 16:40:03,947 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.245s
+2025-07-22 16:40:03,947 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:41:22,885 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 16:41:22,891 - elimu_hub - INFO - login:70 - Login attempt for email: test@elimuhub.com
+2025-07-22 16:41:23,452 - elimu_hub - INFO - login:88 - User logged in successfully: test@elimuhub.com
+2025-07-22 16:41:23,454 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.569s
+2025-07-22 16:41:23,455 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:42:01,825 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 16:42:01,832 - elimu_hub - WARNING - verify_token:46 - JWT token verification failed: Signature verification failed.
+2025-07-22 16:42:01,833 - elimu_hub - ERROR - get_current_user:41 - Error getting current user: 401: Could not validate credentials
+2025-07-22 16:42:01,834 - elimu_hub - INFO - log_requests:43 - Response: 401 - 0.009s
+2025-07-22 16:42:01,835 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:42:14,780 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 16:42:14,785 - elimu_hub - INFO - login:70 - Login attempt for email: test@elimuhub.com
+2025-07-22 16:42:15,387 - elimu_hub - INFO - login:88 - User logged in successfully: test@elimuhub.com
+2025-07-22 16:42:15,389 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.609s
+2025-07-22 16:42:15,390 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:42:15,400 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 16:42:15,406 - elimu_hub - INFO - chat:69 - User test@elimuhub.com chat request - Topic: Mathematics, Question: What is 2+2?...
+2025-07-22 16:42:15,409 - elimu_hub - ERROR - chat:217 - Error processing chat request for user test@elimuhub.com: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+Traceback (most recent call last):
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\api\chat.py", line 100, in chat
+    db.commit()
+    ~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 76, in save_obj
+    for table, mapper in base_mapper._sorted_tables.items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4060, in _sorted_tables
+    sorted_ = sql_util.sort_tables(
+        table_to_mapper,
+        skip_fn=skip,
+        extra_dependencies=extra_dependencies,
+    )
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1316, in sort_tables
+    for (t, fkcs) in sort_tables_and_constraints(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tables,
+        ^^^^^^^
+    ...<2 lines>...
+        _warn_for_cycles=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1386, in sort_tables_and_constraints
+    filtered = filter_fn(fkc)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1306, in _skip_fn
+    if fixed_skip_fn(fk):
+       ~~~~~~~~~~~~~^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4043, in skip
+    dep = table_to_mapper.get(fk.column.table)
+                              ^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1226, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3199, in column
+    return self._resolve_column()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3222, in _resolve_column
+    raise exc.NoReferencedTableError(
+    ...<5 lines>...
+    )
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+2025-07-22 16:42:15,423 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.023s
+2025-07-22 16:42:15,424 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:43:21,999 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 16:43:22,003 - elimu_hub - INFO - login:70 - Login attempt for email: test@elimuhub.com
+2025-07-22 16:43:22,619 - elimu_hub - INFO - login:88 - User logged in successfully: test@elimuhub.com
+2025-07-22 16:43:22,622 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.623s
+2025-07-22 16:43:22,622 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:43:22,632 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/auth/me
+2025-07-22 16:43:22,635 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.003s
+2025-07-22 16:43:22,637 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:43:22,643 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/auth/me
+2025-07-22 16:43:22,658 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.015s
+2025-07-22 16:43:22,659 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:43:28,154 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 16:43:28,162 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.007s
+2025-07-22 16:43:28,164 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:43:28,193 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 16:43:28,209 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.018s
+2025-07-22 16:43:28,211 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:43:31,830 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 16:43:33,104 - elimu_hub - INFO - log_requests:43 - Response: 200 - 1.273s
+2025-07-22 16:43:33,105 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:43:45,106 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/chat
+2025-07-22 16:43:45,108 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.002s
+2025-07-22 16:43:45,111 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:43:45,129 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 16:43:45,145 - elimu_hub - INFO - chat:69 - User test@elimuhub.com chat request - Topic: Mathematics, Question: 2+2...
+2025-07-22 16:43:45,164 - elimu_hub - ERROR - chat:217 - Error processing chat request for user test@elimuhub.com: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+Traceback (most recent call last):
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\api\chat.py", line 100, in chat
+    db.commit()
+    ~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 76, in save_obj
+    for table, mapper in base_mapper._sorted_tables.items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4060, in _sorted_tables
+    sorted_ = sql_util.sort_tables(
+        table_to_mapper,
+        skip_fn=skip,
+        extra_dependencies=extra_dependencies,
+    )
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1316, in sort_tables
+    for (t, fkcs) in sort_tables_and_constraints(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tables,
+        ^^^^^^^
+    ...<2 lines>...
+        _warn_for_cycles=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1386, in sort_tables_and_constraints
+    filtered = filter_fn(fkc)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1306, in _skip_fn
+    if fixed_skip_fn(fk):
+       ~~~~~~~~~~~~~^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4043, in skip
+    dep = table_to_mapper.get(fk.column.table)
+                              ^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1226, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3199, in column
+    return self._resolve_column()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3222, in _resolve_column
+    raise exc.NoReferencedTableError(
+    ...<5 lines>...
+    )
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+2025-07-22 16:43:45,199 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.070s
+2025-07-22 16:43:45,200 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:44:46,189 - elimu_hub - INFO - shutdown_event:122 - Shutting down Elimu Hub API...
+2025-07-22 16:44:46,190 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 16:44:46,204 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 16:44:46,228 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 16:44:46,357 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 16:44:46,636 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 16:44:46,638 - elimu_hub - INFO - shutdown_event:126 - Job queue stopped
+2025-07-22 16:45:07,234 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 16:45:07,238 - elimu_hub - INFO - chat:69 - User test@elimuhub.com chat request - Topic: Mathematics, Question: help...
+2025-07-22 16:45:07,242 - elimu_hub - ERROR - chat:217 - Error processing chat request for user test@elimuhub.com: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+Traceback (most recent call last):
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\api\chat.py", line 100, in chat
+    db.commit()
+    ~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 76, in save_obj
+    for table, mapper in base_mapper._sorted_tables.items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4060, in _sorted_tables
+    sorted_ = sql_util.sort_tables(
+        table_to_mapper,
+        skip_fn=skip,
+        extra_dependencies=extra_dependencies,
+    )
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1316, in sort_tables
+    for (t, fkcs) in sort_tables_and_constraints(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tables,
+        ^^^^^^^
+    ...<2 lines>...
+        _warn_for_cycles=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1386, in sort_tables_and_constraints
+    filtered = filter_fn(fkc)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1306, in _skip_fn
+    if fixed_skip_fn(fk):
+       ~~~~~~~~~~~~~^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4043, in skip
+    dep = table_to_mapper.get(fk.column.table)
+                              ^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1226, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3199, in column
+    return self._resolve_column()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3222, in _resolve_column
+    raise exc.NoReferencedTableError(
+    ...<5 lines>...
+    )
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+2025-07-22 16:45:07,253 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.019s
+2025-07-22 16:45:07,256 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:45:10,687 - elimu_hub - INFO - startup_event:108 - Starting Elimu Hub API...
+2025-07-22 16:45:10,689 - elimu_hub - INFO - startup_event:109 - Environment: DEBUG
+2025-07-22 16:45:10,690 - elimu_hub - INFO - startup_event:110 - Log level: INFO
+2025-07-22 16:45:10,691 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 16:45:10,693 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 16:45:10,695 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 16:45:10,696 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 16:45:10,698 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 16:45:10,698 - elimu_hub - INFO - startup_event:114 - Job queue started
+2025-07-22 16:45:10,699 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 16:45:10,702 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 16:45:10,703 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
+2025-07-22 16:46:00,387 - elimu_hub - INFO - shutdown_event:122 - Shutting down Elimu Hub API...
+2025-07-22 16:46:00,387 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 16:46:01,127 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 16:46:01,127 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 16:46:01,142 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 16:46:01,142 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 16:46:01,144 - elimu_hub - INFO - shutdown_event:126 - Job queue stopped
+2025-07-22 16:46:24,326 - elimu_hub - INFO - startup_event:108 - Starting Elimu Hub API...
+2025-07-22 16:46:24,327 - elimu_hub - INFO - startup_event:109 - Environment: DEBUG
+2025-07-22 16:46:24,327 - elimu_hub - INFO - startup_event:110 - Log level: INFO
+2025-07-22 16:46:24,329 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 16:46:24,333 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 16:46:24,334 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 16:46:24,335 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 16:46:24,337 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 16:46:24,337 - elimu_hub - INFO - startup_event:114 - Job queue started
+2025-07-22 16:46:24,337 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 16:46:24,340 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 16:46:24,341 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
+2025-07-22 16:47:10,820 - elimu_hub - INFO - shutdown_event:122 - Shutting down Elimu Hub API...
+2025-07-22 16:47:10,820 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 16:47:11,791 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 16:47:11,792 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 16:47:11,792 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 16:47:11,792 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 16:47:11,797 - elimu_hub - INFO - shutdown_event:126 - Job queue stopped
+2025-07-22 16:47:26,124 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 16:47:26,127 - elimu_hub - INFO - login:70 - Login attempt for email: test@elimuhub.com
+2025-07-22 16:47:26,662 - elimu_hub - INFO - login:88 - User logged in successfully: test@elimuhub.com
+2025-07-22 16:47:26,664 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.540s
+2025-07-22 16:47:26,665 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:47:26,668 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 16:47:26,672 - elimu_hub - INFO - chat:69 - User test@elimuhub.com chat request - Topic: Mathematics, Question: What is 2+2?...
+2025-07-22 16:47:26,676 - elimu_hub - ERROR - chat:217 - Error processing chat request for user test@elimuhub.com: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+Traceback (most recent call last):
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\api\chat.py", line 100, in chat
+    db.commit()
+    ~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 76, in save_obj
+    for table, mapper in base_mapper._sorted_tables.items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4060, in _sorted_tables
+    sorted_ = sql_util.sort_tables(
+        table_to_mapper,
+        skip_fn=skip,
+        extra_dependencies=extra_dependencies,
+    )
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1316, in sort_tables
+    for (t, fkcs) in sort_tables_and_constraints(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tables,
+        ^^^^^^^
+    ...<2 lines>...
+        _warn_for_cycles=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1386, in sort_tables_and_constraints
+    filtered = filter_fn(fkc)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1306, in _skip_fn
+    if fixed_skip_fn(fk):
+       ~~~~~~~~~~~~~^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4043, in skip
+    dep = table_to_mapper.get(fk.column.table)
+                              ^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1226, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3199, in column
+    return self._resolve_column()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3222, in _resolve_column
+    raise exc.NoReferencedTableError(
+    ...<5 lines>...
+    )
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+2025-07-22 16:47:26,710 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.042s
+2025-07-22 16:47:26,711 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:47:34,709 - elimu_hub - INFO - startup_event:108 - Starting Elimu Hub API...
+2025-07-22 16:47:34,709 - elimu_hub - INFO - startup_event:109 - Environment: DEBUG
+2025-07-22 16:47:34,710 - elimu_hub - INFO - startup_event:110 - Log level: INFO
+2025-07-22 16:47:34,713 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 16:47:34,717 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 16:47:34,722 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 16:47:34,724 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 16:47:34,726 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 16:47:34,727 - elimu_hub - INFO - startup_event:114 - Job queue started
+2025-07-22 16:47:34,740 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 16:47:34,746 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 16:47:34,747 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
+2025-07-22 16:49:56,146 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 16:49:56,150 - elimu_hub - INFO - login:70 - Login attempt for email: test@elimuhub.com
+2025-07-22 16:49:56,791 - elimu_hub - INFO - login:88 - User logged in successfully: test@elimuhub.com
+2025-07-22 16:49:56,793 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.647s
+2025-07-22 16:49:56,795 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:49:56,799 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 16:49:56,806 - elimu_hub - INFO - chat:69 - User test@elimuhub.com chat request - Topic: Mathematics, Question: What is 2+2?...
+2025-07-22 16:49:56,810 - elimu_hub - ERROR - chat:217 - Error processing chat request for user test@elimuhub.com: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+Traceback (most recent call last):
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\api\chat.py", line 100, in chat
+    db.commit()
+    ~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 76, in save_obj
+    for table, mapper in base_mapper._sorted_tables.items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4060, in _sorted_tables
+    sorted_ = sql_util.sort_tables(
+        table_to_mapper,
+        skip_fn=skip,
+        extra_dependencies=extra_dependencies,
+    )
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1316, in sort_tables
+    for (t, fkcs) in sort_tables_and_constraints(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tables,
+        ^^^^^^^
+    ...<2 lines>...
+        _warn_for_cycles=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1386, in sort_tables_and_constraints
+    filtered = filter_fn(fkc)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1306, in _skip_fn
+    if fixed_skip_fn(fk):
+       ~~~~~~~~~~~~~^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4043, in skip
+    dep = table_to_mapper.get(fk.column.table)
+                              ^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1226, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3199, in column
+    return self._resolve_column()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3222, in _resolve_column
+    raise exc.NoReferencedTableError(
+    ...<5 lines>...
+    )
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+2025-07-22 16:49:56,821 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.021s
+2025-07-22 16:49:56,822 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:52:09,877 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 16:52:09,880 - elimu_hub - INFO - login:70 - Login attempt for email: test@elimuhub.com
+2025-07-22 16:52:10,486 - elimu_hub - INFO - login:88 - User logged in successfully: test@elimuhub.com
+2025-07-22 16:52:10,489 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.612s
+2025-07-22 16:52:10,490 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:52:10,496 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 16:52:10,502 - elimu_hub - INFO - chat:69 - User test@elimuhub.com chat request - Topic: Mathematics, Question: What is 2+2?...
+2025-07-22 16:52:10,506 - elimu_hub - ERROR - chat:217 - Error processing chat request for user test@elimuhub.com: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+Traceback (most recent call last):
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\api\chat.py", line 100, in chat
+    db.commit()
+    ~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 76, in save_obj
+    for table, mapper in base_mapper._sorted_tables.items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4060, in _sorted_tables
+    sorted_ = sql_util.sort_tables(
+        table_to_mapper,
+        skip_fn=skip,
+        extra_dependencies=extra_dependencies,
+    )
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1316, in sort_tables
+    for (t, fkcs) in sort_tables_and_constraints(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tables,
+        ^^^^^^^
+    ...<2 lines>...
+        _warn_for_cycles=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1386, in sort_tables_and_constraints
+    filtered = filter_fn(fkc)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1306, in _skip_fn
+    if fixed_skip_fn(fk):
+       ~~~~~~~~~~~~~^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4043, in skip
+    dep = table_to_mapper.get(fk.column.table)
+                              ^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1226, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3199, in column
+    return self._resolve_column()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3222, in _resolve_column
+    raise exc.NoReferencedTableError(
+    ...<5 lines>...
+    )
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+2025-07-22 16:52:10,518 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.022s
+2025-07-22 16:52:10,519 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:53:02,930 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 16:53:02,935 - elimu_hub - INFO - chat:69 - User test@elimuhub.com chat request - Topic: Mathematics, Question: hello...
+2025-07-22 16:53:02,937 - elimu_hub - ERROR - chat:217 - Error processing chat request for user test@elimuhub.com: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+Traceback (most recent call last):
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\api\chat.py", line 100, in chat
+    db.commit()
+    ~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 76, in save_obj
+    for table, mapper in base_mapper._sorted_tables.items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4060, in _sorted_tables
+    sorted_ = sql_util.sort_tables(
+        table_to_mapper,
+        skip_fn=skip,
+        extra_dependencies=extra_dependencies,
+    )
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1316, in sort_tables
+    for (t, fkcs) in sort_tables_and_constraints(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tables,
+        ^^^^^^^
+    ...<2 lines>...
+        _warn_for_cycles=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1386, in sort_tables_and_constraints
+    filtered = filter_fn(fkc)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1306, in _skip_fn
+    if fixed_skip_fn(fk):
+       ~~~~~~~~~~~~~^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4043, in skip
+    dep = table_to_mapper.get(fk.column.table)
+                              ^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1226, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3199, in column
+    return self._resolve_column()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3222, in _resolve_column
+    raise exc.NoReferencedTableError(
+    ...<5 lines>...
+    )
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+2025-07-22 16:53:02,984 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.053s
+2025-07-22 16:53:02,984 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:53:12,788 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 16:53:12,795 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.007s
+2025-07-22 16:53:12,796 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:53:12,820 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 16:53:12,825 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.005s
+2025-07-22 16:53:12,826 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:53:15,767 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 16:53:15,768 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.001s
+2025-07-22 16:53:15,768 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:53:15,772 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 16:53:17,196 - elimu_hub - INFO - log_requests:43 - Response: 200 - 1.424s
+2025-07-22 16:53:17,197 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:55:19,582 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 16:55:19,587 - elimu_hub - INFO - login:70 - Login attempt for email: test@elimuhub.com
+2025-07-22 16:55:20,148 - elimu_hub - INFO - login:88 - User logged in successfully: test@elimuhub.com
+2025-07-22 16:55:20,151 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.568s
+2025-07-22 16:55:20,151 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:55:20,161 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 16:55:20,166 - elimu_hub - INFO - chat:69 - User test@elimuhub.com chat request - Topic: Mathematics, Question: What is 2+2?...
+2025-07-22 16:55:20,170 - elimu_hub - ERROR - chat:217 - Error processing chat request for user test@elimuhub.com: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+Traceback (most recent call last):
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\api\chat.py", line 100, in chat
+    session = None
+        ^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 76, in save_obj
+    for table, mapper in base_mapper._sorted_tables.items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4060, in _sorted_tables
+    sorted_ = sql_util.sort_tables(
+        table_to_mapper,
+        skip_fn=skip,
+        extra_dependencies=extra_dependencies,
+    )
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1316, in sort_tables
+    for (t, fkcs) in sort_tables_and_constraints(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tables,
+        ^^^^^^^
+    ...<2 lines>...
+        _warn_for_cycles=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1386, in sort_tables_and_constraints
+    filtered = filter_fn(fkc)
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1306, in _skip_fn
+    if fixed_skip_fn(fk):
+       ~~~~~~~~~~~~~^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4043, in skip
+    dep = table_to_mapper.get(fk.column.table)
+                              ^^^^^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1226, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3199, in column
+    return self._resolve_column()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Edd\Documents\Github\Elimu-hub-1.0\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3222, in _resolve_column
+    raise exc.NoReferencedTableError(
+    ...<5 lines>...
+    )
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'chat_sessions.user_id' could not find table 'users' with which to generate a foreign key to target column 'id'
+2025-07-22 16:55:20,182 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.021s
+2025-07-22 16:55:20,182 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:56:00,742 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/test-llm
+2025-07-22 16:56:00,744 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.002s
+2025-07-22 16:56:00,744 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:56:42,742 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/health
+2025-07-22 16:56:43,759 - elimu_hub - INFO - log_requests:43 - Response: 200 - 1.017s
+2025-07-22 16:56:43,759 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:58:09,222 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 16:58:09,226 - elimu_hub - INFO - login:70 - Login attempt for email: test@elimuhub.com
+2025-07-22 16:58:09,844 - elimu_hub - INFO - login:88 - User logged in successfully: test@elimuhub.com
+2025-07-22 16:58:09,846 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.624s
+2025-07-22 16:58:09,846 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 16:58:09,855 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 16:58:11,307 - elimu_hub - INFO - log_requests:43 - Response: 200 - 1.453s
+2025-07-22 16:58:11,308 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:05:07,346 - elimu_hub - INFO - startup_event:108 - Starting Elimu Hub API...
+2025-07-22 17:05:07,347 - elimu_hub - INFO - startup_event:109 - Environment: DEBUG
+2025-07-22 17:05:07,347 - elimu_hub - INFO - startup_event:110 - Log level: INFO
+2025-07-22 17:05:07,351 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 17:05:07,355 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 17:05:07,357 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 17:05:07,358 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 17:05:07,360 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 17:05:07,360 - elimu_hub - INFO - startup_event:114 - Job queue started
+2025-07-22 17:05:07,361 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 17:05:07,365 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 17:05:07,366 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
+2025-07-22 17:05:16,340 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/chat
+2025-07-22 17:05:16,343 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.003s
+2025-07-22 17:05:16,343 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:05:45,574 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 17:05:45,577 - elimu_hub - INFO - log_requests:43 - Response: 403 - 0.003s
+2025-07-22 17:05:45,578 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:06:25,264 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/chat/debug
+2025-07-22 17:06:25,266 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.002s
+2025-07-22 17:06:25,267 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:06:44,699 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/test-llm
+2025-07-22 17:06:44,701 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.001s
+2025-07-22 17:06:44,702 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:06:53,835 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/?id=c4cc2239-33e8-49cd-9387-925d7b38238c&vscodeBrowserReqId=1753193213457
+2025-07-22 17:06:53,836 - elimu_hub - INFO - root:98 - Root endpoint accessed
+2025-07-22 17:06:53,837 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.002s
+2025-07-22 17:06:53,838 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:06:59,369 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/docs?id=c4cc2239-33e8-49cd-9387-925d7b38238c&vscodeBrowserReqId=1753193219359
+2025-07-22 17:06:59,371 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.002s
+2025-07-22 17:06:59,372 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:07:00,293 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/openapi.json
+2025-07-22 17:07:00,369 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.076s
+2025-07-22 17:07:00,371 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:07:07,612 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/test-llm?id=c4cc2239-33e8-49cd-9387-925d7b38238c&vscodeBrowserReqId=1753193227292
+2025-07-22 17:07:07,614 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.002s
+2025-07-22 17:07:07,615 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:08:13,271 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 17:08:13,275 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.004s
+2025-07-22 17:08:13,276 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:08:13,281 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 17:08:13,286 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.005s
+2025-07-22 17:08:13,287 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:08:13,291 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 17:08:13,295 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.004s
+2025-07-22 17:08:13,305 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:08:15,412 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 17:08:15,432 - elimu_hub - INFO - log_requests:43 - Response: 400 - 0.020s
+2025-07-22 17:08:15,434 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:08:51,588 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/auth/login
+2025-07-22 17:08:51,590 - elimu_hub - INFO - log_requests:43 - Response: 400 - 0.001s
+2025-07-22 17:08:51,590 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:09:10,614 - elimu_hub - INFO - shutdown_event:122 - Shutting down Elimu Hub API...
+2025-07-22 17:09:10,615 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 17:09:11,312 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 17:09:11,329 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 17:09:11,329 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 17:09:11,383 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 17:09:11,385 - elimu_hub - INFO - shutdown_event:126 - Job queue stopped
+2025-07-22 17:09:33,999 - elimu_hub - INFO - startup_event:108 - Starting Elimu Hub API...
+2025-07-22 17:09:34,001 - elimu_hub - INFO - startup_event:109 - Environment: DEBUG
+2025-07-22 17:09:34,003 - elimu_hub - INFO - startup_event:110 - Log level: INFO
+2025-07-22 17:09:34,003 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 17:09:34,007 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 17:09:34,009 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 17:09:34,010 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 17:09:34,011 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 17:09:34,012 - elimu_hub - INFO - startup_event:114 - Job queue started
+2025-07-22 17:09:34,012 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 17:09:34,016 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 17:09:34,017 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
+2025-07-22 17:09:45,415 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/auth/login
+2025-07-22 17:09:45,417 - elimu_hub - INFO - log_requests:43 - Response: 400 - 0.002s
+2025-07-22 17:09:45,418 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:12:25,594 - elimu_hub - INFO - startup_event:108 - Starting Elimu Hub API...
+2025-07-22 17:12:25,595 - elimu_hub - INFO - startup_event:109 - Environment: DEBUG
+2025-07-22 17:12:25,596 - elimu_hub - INFO - startup_event:110 - Log level: INFO
+2025-07-22 17:12:25,596 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 17:12:25,601 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 17:12:25,602 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 17:12:25,603 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 17:12:25,604 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 17:12:25,604 - elimu_hub - INFO - startup_event:114 - Job queue started
+2025-07-22 17:12:25,605 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 17:12:25,608 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 17:12:25,609 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
+2025-07-22 17:12:45,899 - elimu_hub - INFO - shutdown_event:122 - Shutting down Elimu Hub API...
+2025-07-22 17:12:45,900 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 17:12:46,803 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 17:12:46,803 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 17:12:46,804 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 17:12:46,804 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 17:12:46,807 - elimu_hub - INFO - shutdown_event:126 - Job queue stopped
+2025-07-22 17:13:10,607 - elimu_hub - INFO - startup_event:108 - Starting Elimu Hub API...
+2025-07-22 17:13:10,608 - elimu_hub - INFO - startup_event:109 - Environment: DEBUG
+2025-07-22 17:13:10,608 - elimu_hub - INFO - startup_event:110 - Log level: INFO
+2025-07-22 17:13:10,609 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 17:13:10,615 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 17:13:10,617 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 17:13:10,619 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 17:13:10,621 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 17:13:10,621 - elimu_hub - INFO - startup_event:114 - Job queue started
+2025-07-22 17:13:10,622 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 17:13:10,625 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 17:13:10,626 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
+2025-07-22 17:13:10,628 - elimu_hub - INFO - shutdown_event:122 - Shutting down Elimu Hub API...
+2025-07-22 17:13:10,629 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 17:13:11,623 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 17:13:11,624 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 17:13:11,624 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 17:13:11,624 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 17:13:11,633 - elimu_hub - INFO - shutdown_event:126 - Job queue stopped
+2025-07-22 17:13:35,598 - elimu_hub - INFO - startup_event:108 - Starting Elimu Hub API...
+2025-07-22 17:13:35,599 - elimu_hub - INFO - startup_event:109 - Environment: DEBUG
+2025-07-22 17:13:35,602 - elimu_hub - INFO - startup_event:110 - Log level: INFO
+2025-07-22 17:13:35,603 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 17:13:35,606 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 17:13:35,608 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 17:13:35,610 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 17:13:35,613 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 17:13:35,613 - elimu_hub - INFO - startup_event:114 - Job queue started
+2025-07-22 17:13:35,614 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 17:13:35,617 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 17:13:35,618 - elimu_hub - INFO - startup_event:118 - FTS5 for documents is ready
+2025-07-22 17:13:35,621 - elimu_hub - INFO - shutdown_event:122 - Shutting down Elimu Hub API...
+2025-07-22 17:13:35,621 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 17:13:36,617 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 17:13:36,618 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 17:13:36,618 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 17:13:36,618 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 17:13:36,621 - elimu_hub - INFO - shutdown_event:126 - Job queue stopped
+2025-07-22 17:14:00,200 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 17:14:00,202 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 17:14:00,207 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 17:14:00,214 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 17:14:00,218 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 17:14:00,220 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 17:14:00,221 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 17:14:00,222 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 17:14:00,223 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 17:14:00,223 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 17:14:00,226 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 17:14:00,227 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 17:14:01,104 - elimu_hub - INFO - shutdown_event:120 - Shutting down Elimu Hub API...
+2025-07-22 17:14:01,106 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 17:14:01,228 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 17:14:01,231 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 17:14:01,231 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 17:14:01,231 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 17:14:01,234 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
+2025-07-22 17:14:47,250 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 17:14:47,250 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 17:14:47,251 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 17:14:47,251 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 17:14:47,253 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 17:14:47,254 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 17:14:47,256 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 17:14:47,257 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 17:14:47,257 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 17:14:47,258 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 17:14:47,260 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 17:14:47,261 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 17:14:47,263 - elimu_hub - INFO - shutdown_event:120 - Shutting down Elimu Hub API...
+2025-07-22 17:14:47,264 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 17:14:48,267 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 17:14:48,268 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 17:14:48,268 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 17:14:48,268 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 17:14:48,278 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
+2025-07-22 17:15:11,014 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 17:15:11,014 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 17:15:11,015 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 17:15:11,015 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 17:15:11,017 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 17:15:11,018 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 17:15:11,019 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 17:15:11,020 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 17:15:11,020 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 17:15:11,021 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 17:15:11,024 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 17:15:11,025 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 17:15:15,100 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 17:15:15,100 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 17:15:15,101 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 17:15:15,101 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 17:15:15,102 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 17:15:15,103 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 17:15:15,104 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 17:15:15,105 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 17:15:15,105 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 17:15:15,106 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 17:15:15,108 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 17:15:15,109 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 17:15:22,298 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/test-llm
+2025-07-22 17:15:28,192 - elimu_hub - INFO - log_requests:43 - Response: 200 - 5.894s
+2025-07-22 17:15:28,204 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:16:12,288 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 17:16:12,292 - elimu_hub - INFO - chat:80 - Chat request - Topic: Technology, Question: What is artificial intelligence?...
+2025-07-22 17:16:12,294 - elimu_hub - INFO - chat:94 - Initialized LLM service with provider: openrouter, model: qwen/qwen-2.5-72b-instruct
+2025-07-22 17:16:12,297 - elimu_hub - INFO - chat:97 - Calling LLM service directly for response
+2025-07-22 17:16:38,425 - elimu_hub - INFO - chat:100 - LLM response received: Absolutely, I'd be happy to help explain what artificial intelligence (AI) is!
+
+### What is Artifici...
+2025-07-22 17:16:38,426 - elimu_hub - INFO - chat:111 - Chat response generated successfully in 26.134s
+2025-07-22 17:16:38,428 - elimu_hub - INFO - log_requests:43 - Response: 200 - 26.140s
+2025-07-22 17:16:38,428 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:17:19,188 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/docs?id=b9c42346-c363-4fd9-932a-43eb30e54558&vscodeBrowserReqId=1753193838865
+2025-07-22 17:17:19,189 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.001s
+2025-07-22 17:17:19,189 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:17:19,343 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/openapi.json
+2025-07-22 17:17:19,392 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.049s
+2025-07-22 17:17:19,392 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:17:30,628 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 17:17:30,647 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.019s
+2025-07-22 17:17:30,647 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:17:46,934 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 17:17:46,938 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.004s
+2025-07-22 17:17:46,939 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:18:31,937 - elimu_hub - INFO - shutdown_event:120 - Shutting down Elimu Hub API...
+2025-07-22 17:18:31,937 - elimu_hub - INFO - shutdown_event:120 - Shutting down Elimu Hub API...
+2025-07-22 17:18:31,938 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 17:18:31,939 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 17:18:32,095 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 17:18:32,095 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 17:18:32,095 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 17:18:32,095 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 17:18:32,096 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 17:18:32,096 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 17:18:32,101 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
+2025-07-22 17:18:32,175 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 17:18:32,177 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
+2025-07-22 17:18:55,093 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 17:18:55,093 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 17:18:55,094 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 17:18:55,094 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 17:18:55,094 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 17:18:55,095 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 17:18:55,095 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 17:18:55,095 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 17:18:55,095 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 17:18:55,096 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 17:18:55,097 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 17:18:55,097 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 17:18:55,099 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 17:18:55,099 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 17:18:55,099 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 17:18:55,100 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 17:18:55,101 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 17:18:55,104 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 17:18:55,104 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 17:18:55,104 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 17:18:55,105 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 17:18:55,105 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 17:18:55,108 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 17:18:55,108 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 17:18:58,055 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/auth/me
+2025-07-22 17:18:58,058 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.003s
+2025-07-22 17:18:58,059 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:18:58,067 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/auth/me
+2025-07-22 17:18:58,070 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.002s
+2025-07-22 17:18:58,071 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:19:01,349 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 17:19:01,375 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.026s
+2025-07-22 17:19:01,382 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:19:01,427 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 17:19:01,431 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.004s
+2025-07-22 17:19:01,431 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:19:04,861 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 17:19:04,863 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.002s
+2025-07-22 17:19:04,864 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:19:04,868 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 17:19:08,765 - elimu_hub - INFO - log_requests:43 - Response: 200 - 3.897s
+2025-07-22 17:19:08,766 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:19:20,215 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 17:19:31,256 - elimu_hub - INFO - log_requests:43 - Response: 200 - 11.041s
+2025-07-22 17:19:31,257 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:19:51,074 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 17:20:06,671 - elimu_hub - INFO - log_requests:43 - Response: 200 - 15.596s
+2025-07-22 17:20:06,673 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:20:41,748 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 17:20:58,294 - elimu_hub - INFO - log_requests:43 - Response: 200 - 16.546s
+2025-07-22 17:20:58,295 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:22:36,381 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 17:22:43,873 - elimu_hub - INFO - log_requests:43 - Response: 200 - 7.493s
+2025-07-22 17:22:43,874 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:23:15,233 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 17:23:21,392 - elimu_hub - INFO - log_requests:43 - Response: 200 - 6.160s
+2025-07-22 17:23:21,393 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:24:11,213 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/auth/login
+2025-07-22 17:24:11,214 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.001s
+2025-07-22 17:24:11,215 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:24:11,220 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 17:24:11,223 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.002s
+2025-07-22 17:24:11,226 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:24:12,578 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 17:24:12,596 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.018s
+2025-07-22 17:24:12,598 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:24:17,227 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 17:24:17,229 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.002s
+2025-07-22 17:24:17,230 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:24:18,124 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 17:24:18,128 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.005s
+2025-07-22 17:24:18,132 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:24:18,779 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 17:24:18,781 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.002s
+2025-07-22 17:24:18,782 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:24:19,219 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 17:24:19,225 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.006s
+2025-07-22 17:24:19,230 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:24:19,544 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/auth/login
+2025-07-22 17:24:19,546 - elimu_hub - INFO - log_requests:43 - Response: 404 - 0.002s
+2025-07-22 17:24:19,547 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:24:42,441 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 17:24:42,452 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.010s
+2025-07-22 17:24:42,456 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:24:42,474 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 17:24:42,487 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.014s
+2025-07-22 17:24:42,489 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:25:01,118 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 17:25:04,765 - elimu_hub - INFO - log_requests:43 - Response: 200 - 3.647s
+2025-07-22 17:25:04,766 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 17:25:23,465 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 17:25:28,070 - elimu_hub - INFO - log_requests:43 - Response: 200 - 4.605s
+2025-07-22 17:25:28,071 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 18:00:03,573 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 18:00:03,575 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.002s
+2025-07-22 18:00:03,576 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 18:00:03,826 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 18:00:07,567 - elimu_hub - INFO - log_requests:43 - Response: 200 - 3.741s
+2025-07-22 18:00:07,575 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 18:01:39,921 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 18:01:48,528 - elimu_hub - INFO - log_requests:43 - Response: 200 - 8.607s
+2025-07-22 18:01:48,529 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'

@@ -1,3 +1,4 @@
+
 import requests
 import os
 
@@ -7,8 +8,8 @@ class LLMService:
         
         if provider == "openrouter":
             self.api_key = os.getenv("OPENROUTER_API_KEY", "")
-            self.model = model or os.getenv("QWEN_MODEL", "alibaba/qwen-turbo")
-            self.api_url = os.getenv("OPENROUTER_API_URL", "https://openrouter.ai/api/v1/chat/completions")
+            self.model = model or os.getenv("OPENROUTER_MODEL", "qwen/qwen-2.5-72b-instruct")
+            self.api_url = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1") + "/chat/completions"
             self.site_url = os.getenv("SITE_URL", "http://localhost:3000")
             self.app_name = os.getenv("APP_NAME", "Elimu Hub AI")
         else:  # fallback to groq
