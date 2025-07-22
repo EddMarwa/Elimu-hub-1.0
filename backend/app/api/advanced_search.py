@@ -1,6 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status, Query
-from app.auth.dependencies import get_current_user
-from app.auth.models import User
+from fastapi import APIRouter, HTTPException, status, Query
 from app.db.database import SessionLocal
 from app.db.database import Document
 from app.services.vector_store import vector_store
@@ -25,14 +23,11 @@ async def advanced_search(
     date_to: Optional[str] = Query(None, description="Filter to date (YYYY-MM-DD)"),
     min_size: Optional[int] = Query(None, ge=0, description="Minimum file size in bytes"),
     max_size: Optional[int] = Query(None, ge=0, description="Maximum file size in bytes"),
-    include_content: bool = Query(False, description="Include document content in results"),
-    current_user: User = Depends(get_current_user)
+    include_content: bool = Query(False, description="Include document content in results")
 ):
     """Advanced search with filtering, sorting, and pagination."""
     try:
         db = SessionLocal()
-        
-        # Build base query
         base_query = db.query(Document)
         
         # Apply filters
@@ -131,7 +126,7 @@ async def advanced_search(
         paginated_results = results[start_idx:end_idx]
         
         # Log search activity
-        logger.info(f"User {current_user.email} performed advanced search: {query}")
+        logger.info(f"Advanced search performed: {query}")
         
         return {
             "results": paginated_results,
@@ -158,9 +153,7 @@ async def advanced_search(
         db.close()
 
 @router.get("/search/facets", response_model=Dict[str, Any])
-async def get_search_facets(
-    current_user: User = Depends(get_current_user)
-):
+async def get_search_facets():
     """Get search facets for filtering (file types, date ranges, etc.)."""
     try:
         db = SessionLocal()
