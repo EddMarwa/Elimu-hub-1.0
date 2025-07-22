@@ -2274,3 +2274,97 @@ Let's break it down to u...
 2025-07-22 22:14:45,882 - elimu_hub - INFO - chat:83 - Chat request - Topic: Mathematics, Question: algebra...
 2025-07-22 22:14:45,883 - elimu_hub - INFO - chat:97 - Initialized LLM service with provider: openrouter, model: qwen/qwen-2.5-72b-instruct
 2025-07-22 22:14:45,883 - elimu_hub - INFO - chat:101 - Searching for relevant context for topic: Mathematics
+2025-07-22 22:14:55,193 - elimu_hub - INFO - chat:115 - Found 0 relevant document chunks
+2025-07-22 22:15:22,807 - elimu_hub - INFO - chat:137 - LLM response received: Of course! I'd be happy to help you with algebra. Algebra is a branch of mathematics that deals with...
+2025-07-22 22:15:22,808 - elimu_hub - INFO - chat:148 - Chat response generated successfully in 36.926s
+2025-07-22 22:15:22,809 - elimu_hub - INFO - log_requests:43 - Response: 200 - 36.931s
+2025-07-22 22:15:22,810 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:21:08,320 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/chat
+2025-07-22 22:21:08,322 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.002s
+2025-07-22 22:21:08,322 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:21:08,330 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 22:21:08,333 - elimu_hub - INFO - chat:83 - Chat request - Topic: Mathematics, Question: shorten this response...
+2025-07-22 22:21:08,334 - elimu_hub - INFO - chat:97 - Initialized LLM service with provider: openrouter, model: qwen/qwen-2.5-72b-instruct
+2025-07-22 22:21:08,335 - elimu_hub - INFO - chat:101 - Searching for relevant context for topic: Mathematics
+2025-07-22 22:21:18,413 - elimu_hub - INFO - chat:115 - Found 0 relevant document chunks
+2025-07-22 22:21:22,223 - elimu_hub - INFO - chat:137 - LLM response received: Of course! Could you please provide the original response that needs to be shortened? That way, I ca...
+2025-07-22 22:21:22,224 - elimu_hub - INFO - chat:148 - Chat response generated successfully in 13.891s
+2025-07-22 22:21:22,226 - elimu_hub - INFO - log_requests:43 - Response: 200 - 13.897s
+2025-07-22 22:21:22,227 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:21:39,940 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 22:21:39,950 - elimu_hub - INFO - log_requests:43 - Response: 422 - 0.010s
+2025-07-22 22:21:39,951 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:21:50,259 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 22:21:50,262 - elimu_hub - INFO - chat:83 - Chat request - Topic: Mathematics, Question: damn...
+2025-07-22 22:21:50,263 - elimu_hub - INFO - chat:97 - Initialized LLM service with provider: openrouter, model: qwen/qwen-2.5-72b-instruct
+2025-07-22 22:21:50,263 - elimu_hub - INFO - chat:101 - Searching for relevant context for topic: Mathematics
+2025-07-22 22:22:00,035 - elimu_hub - INFO - chat:115 - Found 0 relevant document chunks
+2025-07-22 22:22:05,165 - elimu_hub - INFO - chat:137 - LLM response received: It looks like you might have sent an incomplete question or a message that doesn't quite fit the edu...
+2025-07-22 22:22:05,166 - elimu_hub - INFO - chat:148 - Chat response generated successfully in 14.904s
+2025-07-22 22:22:05,168 - elimu_hub - INFO - log_requests:43 - Response: 200 - 14.909s
+2025-07-22 22:22:05,168 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:23:43,084 - elimu_hub - INFO - shutdown_event:120 - Shutting down Elimu Hub API...
+2025-07-22 22:23:43,084 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 22:23:43,553 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 22:23:43,646 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 22:23:43,649 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 22:23:43,650 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 22:23:43,668 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
+2025-07-22 22:24:10,864 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 22:24:10,865 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 22:24:10,866 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 22:24:10,866 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 22:24:10,868 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 22:24:10,869 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 22:24:10,871 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 22:24:10,872 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 22:24:10,872 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 22:24:10,873 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 22:24:10,876 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 22:24:10,876 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 22:24:10,880 - elimu_hub - INFO - shutdown_event:120 - Shutting down Elimu Hub API...
+2025-07-22 22:24:10,881 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 22:24:11,876 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 22:24:11,877 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 22:24:11,877 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 22:24:11,877 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 22:24:11,881 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
+2025-07-22 22:24:36,332 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 22:24:36,333 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 22:24:36,333 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 22:24:36,334 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 22:24:36,335 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 22:24:36,336 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 22:24:36,337 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 22:24:36,339 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 22:24:36,339 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 22:24:36,340 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 22:24:36,342 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 22:24:36,343 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 22:24:47,130 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/test-llm
+2025-07-22 22:24:48,405 - elimu_hub - INFO - log_requests:43 - Response: 200 - 1.275s
+2025-07-22 22:24:48,406 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:25:02,974 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 22:25:02,977 - elimu_hub - INFO - chat:83 - Chat request - Topic: Technology, Question: What is artificial intelligence?...
+2025-07-22 22:25:02,978 - elimu_hub - INFO - chat:97 - Initialized LLM service with provider: groq, model: llama3-8b-8192
+2025-07-22 22:25:02,978 - elimu_hub - INFO - chat:101 - Searching for relevant context for topic: Technology
+2025-07-22 22:25:14,147 - elimu_hub - INFO - chat:115 - Found 0 relevant document chunks
+2025-07-22 22:25:15,326 - elimu_hub - INFO - chat:137 - LLM response received: I'm excited to help you learn about artificial intelligence!
+
+Artificial intelligence, or AI, refers...
+2025-07-22 22:25:15,327 - elimu_hub - INFO - chat:148 - Chat response generated successfully in 12.349s
+2025-07-22 22:25:15,330 - elimu_hub - INFO - log_requests:43 - Response: 200 - 12.356s
+2025-07-22 22:25:15,331 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:25:27,153 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 22:25:38,322 - elimu_hub - INFO - log_requests:43 - Response: 200 - 11.169s
+2025-07-22 22:25:38,323 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:25:58,711 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-22 22:26:12,906 - elimu_hub - INFO - log_requests:43 - Response: 200 - 14.195s
+2025-07-22 22:26:12,907 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:26:30,859 - elimu_hub - INFO - shutdown_event:120 - Shutting down Elimu Hub API...
+2025-07-22 22:26:30,859 - elimu_hub - INFO - stop:60 - Stopping job queue workers
+2025-07-22 22:26:31,389 - elimu_hub - INFO - _worker:83 - Worker 0 stopped
+2025-07-22 22:26:31,390 - elimu_hub - INFO - _worker:83 - Worker 1 stopped
+2025-07-22 22:26:31,435 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
+2025-07-22 22:26:31,451 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
+2025-07-22 22:26:31,454 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
