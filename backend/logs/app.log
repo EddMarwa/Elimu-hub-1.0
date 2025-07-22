@@ -2368,3 +2368,35 @@ Artificial intelligence, or AI, refers...
 2025-07-22 22:26:31,435 - elimu_hub - INFO - _worker:83 - Worker 3 stopped
 2025-07-22 22:26:31,451 - elimu_hub - INFO - _worker:83 - Worker 2 stopped
 2025-07-22 22:26:31,454 - elimu_hub - INFO - shutdown_event:124 - Job queue stopped
+2025-07-22 22:26:57,931 - elimu_hub - INFO - startup_event:106 - Starting Elimu Hub API...
+2025-07-22 22:26:57,932 - elimu_hub - INFO - startup_event:107 - Environment: DEBUG
+2025-07-22 22:26:57,932 - elimu_hub - INFO - startup_event:108 - Log level: INFO
+2025-07-22 22:26:57,933 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-22 22:26:57,934 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-22 22:26:57,936 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-22 22:26:57,938 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-22 22:26:57,940 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-22 22:26:57,941 - elimu_hub - INFO - startup_event:112 - Job queue started
+2025-07-22 22:26:57,942 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-22 22:26:57,946 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-22 22:26:57,947 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-22 22:26:57,963 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 22:26:57,968 - elimu_hub - INFO - chat:83 - Chat request - Topic: Mathematics, Question: hello...
+2025-07-22 22:26:57,969 - elimu_hub - INFO - chat:97 - Initialized LLM service with provider: groq, model: llama3-8b-8192
+2025-07-22 22:26:57,969 - elimu_hub - INFO - chat:101 - Searching for relevant context for topic: Mathematics
+2025-07-22 22:27:09,561 - elimu_hub - INFO - chat:115 - Found 0 relevant document chunks
+2025-07-22 22:27:10,490 - elimu_hub - INFO - chat:137 - LLM response received: Hello there! I'm thrilled to see you're reaching out for help. Don't worry, I'm here to assist you w...
+2025-07-22 22:27:10,491 - elimu_hub - INFO - chat:148 - Chat response generated successfully in 12.523s
+2025-07-22 22:27:10,493 - elimu_hub - INFO - log_requests:43 - Response: 200 - 12.530s
+2025-07-22 22:27:10,493 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:27:46,093 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 22:27:46,096 - elimu_hub - INFO - chat:83 - Chat request - Topic: Mathematics, Question: what is todays date...
+2025-07-22 22:27:46,097 - elimu_hub - INFO - chat:97 - Initialized LLM service with provider: groq, model: llama3-8b-8192
+2025-07-22 22:27:46,098 - elimu_hub - INFO - chat:101 - Searching for relevant context for topic: Mathematics
+2025-07-22 22:27:56,948 - elimu_hub - INFO - chat:115 - Found 0 relevant document chunks
+2025-07-22 22:27:57,927 - elimu_hub - INFO - chat:137 - LLM response received: I'd be happy to help!
+
+As an educational assistant, I want to encourage you to develop your critical...
+2025-07-22 22:27:57,928 - elimu_hub - INFO - chat:148 - Chat response generated successfully in 11.832s
+2025-07-22 22:27:57,930 - elimu_hub - INFO - log_requests:43 - Response: 200 - 11.836s
+2025-07-22 22:27:57,930 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
