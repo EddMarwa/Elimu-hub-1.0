@@ -2264,3 +2264,13 @@ Let's break it down to u...
 2025-07-22 22:11:04,983 - elimu_hub - INFO - chat:148 - Chat response generated successfully in 19.075s
 2025-07-22 22:11:04,985 - elimu_hub - INFO - log_requests:43 - Response: 200 - 19.079s
 2025-07-22 22:11:04,985 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:14:35,704 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 22:14:35,726 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.022s
+2025-07-22 22:14:35,727 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:14:35,751 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-22 22:14:35,758 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.007s
+2025-07-22 22:14:35,760 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-22 22:14:45,879 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/chat
+2025-07-22 22:14:45,882 - elimu_hub - INFO - chat:83 - Chat request - Topic: Mathematics, Question: algebra...
+2025-07-22 22:14:45,883 - elimu_hub - INFO - chat:97 - Initialized LLM service with provider: openrouter, model: qwen/qwen-2.5-72b-instruct
+2025-07-22 22:14:45,883 - elimu_hub - INFO - chat:101 - Searching for relevant context for topic: Mathematics
