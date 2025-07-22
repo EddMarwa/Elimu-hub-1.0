@@ -1,14 +1,48 @@
-fastapi
-uvicorn
-sqlalchemy
-pydantic
-PyMuPDF>=1.23.0
-python-multipart
-chromadb
-sentence-transformers
-requests
-python-jose[cryptography]
-passlib[bcrypt]
-email-validator 
-redis 
-psutil 
+# Core FastAPI and ASGI server
+fastapi==0.116.1
+uvicorn==0.35.0
+starlette==0.47.1
+
+# Data models and validation
+pydantic==2.11.7
+pydantic-core==2.33.2
+
+# Database
+sqlalchemy==2.0.41
+
+# Authentication and security
+python-jose[cryptography]==3.5.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.3.0
+cryptography==45.0.5
+
+# File handling and processing
+PyMuPDF==1.26.3
+python-multipart==0.0.20
+
+# Vector database and ML
+chromadb==1.0.15
+sentence-transformers==5.0.0
+torch==2.7.1
+transformers==4.53.2
+numpy==2.3.1
+scikit-learn==1.7.1
+
+# HTTP requests
+requests==2.32.4
+httpx==0.28.1
+
+# Utilities
+email-validator==2.2.0
+redis==6.2.0
+psutil==7.0.0
+python-dotenv==1.1.1
+
+# Development and testing
+pytest==8.4.1
+pytest-asyncio==1.1.0
+
+# Additional dependencies for full functionality
+coloredlogs==15.0.1
+click==8.2.1
+typing-extensions==4.14.1 
