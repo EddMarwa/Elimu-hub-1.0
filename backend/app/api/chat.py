@@ -18,7 +18,7 @@ router = APIRouter()
 async def test_llm():
     """Test endpoint to verify LLM service works"""
     try:
-        llm = LLMService(provider="groq")
+        llm = LLMService(provider="openrouter")
         response = llm.call_llm("What is 2+2? Answer briefly.")
         return {
             "status": "success", 
@@ -57,7 +57,7 @@ async def llm_chat_completions(request: Request):
     for msg in messages:
         if msg["role"] == "user":
             prompt += msg["content"] + "\n"
-    llm = LLMService()
+    llm = LLMService(provider="openrouter")
     answer = llm.call_llm(prompt)
     return JSONResponse(content={
         "choices": [{"message": {"content": answer}}],
@@ -93,7 +93,7 @@ async def chat(req: ChatRequest):
             raise HTTPException(status_code=400, detail="Topic cannot be empty")
 
         # Initialize services
-        llm = LLMService(provider="groq")
+        llm = LLMService(provider="openrouter")
         logger.info(f"Initialized LLM service with provider: {llm.provider}, model: {llm.model}")
         
         # Try to retrieve relevant context from knowledge base

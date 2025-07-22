@@ -30,7 +30,7 @@ async def create_completion(request: CompletionRequest):
     start_time = time.time()
     
     try:
-        llm = LLMService()
+        llm = LLMService(provider="openrouter")
         
         # Generate completion
         logger.info("LLM completion requested")
@@ -80,7 +80,7 @@ async def create_chat_completion(request: dict):
     start_time = time.time()
     
     try:
-        llm = LLMService()
+        llm = LLMService(provider="openrouter")
         
         # Extract messages from request
         messages = request.get("messages", [])
