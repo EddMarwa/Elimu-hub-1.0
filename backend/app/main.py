@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from app.api import ingest, documents, chat, chat_history, jobs, ws_chat, search, analytics, upload_progress, advanced_search, export_import, llm, health
+from app.api import ingest, documents, chat, chat_history, jobs, ws_chat, search, analytics, upload_progress, advanced_search, export_import, llm, health, tailored_chat
 from app.config import settings
 from app.utils.logger import logger
 from app.middleware.rate_limit import rate_limit_middleware
@@ -81,6 +81,7 @@ app.include_router(health.router, tags=["health"])
 app.include_router(ingest.router, prefix="/api/v1", tags=["ingest"])
 app.include_router(documents.router, prefix="/api/v1", tags=["documents"])
 app.include_router(chat.router, prefix="/api/v1", tags=["chat"])
+app.include_router(tailored_chat.router, prefix="/api/v1", tags=["tailored-chat"])
 app.include_router(chat_history.router, prefix="/api/v1/chat", tags=["chat-history"])
 app.include_router(jobs.router, prefix="/api/v1", tags=["jobs"])
 app.include_router(ws_chat.router, tags=["ws-chat"])

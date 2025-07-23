@@ -4274,3 +4274,30 @@ The equation given i...
 2025-07-23 15:57:27,184 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
 2025-07-23 15:57:27,186 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
 2025-07-23 15:57:27,187 - elimu_hub - INFO - startup_event:116 - FTS5 for documents is ready
+2025-07-23 17:08:40,462 - elimu_hub - INFO - startup_event:107 - Starting Elimu Hub API...
+2025-07-23 17:08:40,463 - elimu_hub - INFO - startup_event:108 - Environment: DEBUG
+2025-07-23 17:08:40,463 - elimu_hub - INFO - startup_event:109 - Log level: INFO
+2025-07-23 17:08:40,464 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-23 17:08:40,465 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-23 17:08:40,466 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-23 17:08:40,468 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-23 17:08:40,469 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-23 17:08:40,470 - elimu_hub - INFO - startup_event:113 - Job queue started
+2025-07-23 17:08:40,471 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-23 17:08:40,473 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-23 17:08:40,474 - elimu_hub - INFO - startup_event:117 - FTS5 for documents is ready
+2025-07-23 17:09:06,720 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-23 17:09:06,740 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.020s
+2025-07-23 17:09:06,741 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-23 17:09:06,749 - elimu_hub - INFO - log_requests:36 - Request: GET http://localhost:8000/api/v1/list-topics
+2025-07-23 17:09:06,756 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.007s
+2025-07-23 17:09:06,757 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-23 17:09:14,524 - elimu_hub - INFO - log_requests:36 - Request: OPTIONS http://localhost:8000/api/v1/llm/chat/completions
+2025-07-23 17:09:14,530 - elimu_hub - INFO - log_requests:43 - Response: 200 - 0.005s
+2025-07-23 17:09:14,532 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-23 17:09:14,552 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-23 17:09:15,973 - elimu_hub - INFO - log_requests:43 - Response: 200 - 1.421s
+2025-07-23 17:09:15,974 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-23 17:09:43,007 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
+2025-07-23 17:09:44,067 - elimu_hub - INFO - log_requests:43 - Response: 200 - 1.060s
+2025-07-23 17:09:44,068 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
