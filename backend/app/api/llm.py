@@ -30,7 +30,7 @@ async def create_completion(request: CompletionRequest):
     start_time = time.time()
     
     try:
-        llm = LLMService(provider="openrouter")
+        llm = LLMService(provider="groq")
         
         # Generate completion
         logger.info("LLM completion requested")
@@ -80,7 +80,7 @@ async def create_chat_completion(request: dict):
     start_time = time.time()
     
     try:
-        llm = LLMService(provider="openrouter")
+        llm = LLMService(provider="groq")
         
         # Extract messages from request
         messages = request.get("messages", [])
@@ -150,6 +150,15 @@ async def list_models():
     try:
         # Return available models
         models = [
+            {
+                "id": "HuggingFaceH4/zephyr-7b-beta",
+                "object": "model",
+                "created": int(time.time()),
+                "owned_by": "huggingface",
+                "permission": [],
+                "root": "HuggingFaceH4/zephyr-7b-beta",
+                "parent": None
+            },
             {
                 "id": "qwen/qwen-2.5-72b-instruct",
                 "object": "model",

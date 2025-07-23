@@ -62,7 +62,7 @@ async def websocket_chat(
             # RAG pipeline (streaming simulation)
             embedder = EmbeddingService()
             vector_store = VectorStore()
-            llm = LLMService(provider="openrouter")
+            llm = LLMService(provider="groq")
             q_emb = embedder.embed_texts([question])[0]
             results = vector_store.similarity_search(topic, q_emb, settings.TOP_K_RESULTS)
             docs = results.get('documents', [[]])[0]

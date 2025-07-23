@@ -3,7 +3,7 @@ import requests
 import os
 
 class LLMService:
-    def __init__(self, model=None, provider="openrouter"):
+    def __init__(self, model=None, provider="huggingface"):
         self.provider = provider
         
         if provider == "openrouter":
@@ -12,6 +12,10 @@ class LLMService:
             self.api_url = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1") + "/chat/completions"
             self.site_url = os.getenv("SITE_URL", "http://localhost:3000")
             self.app_name = os.getenv("APP_NAME", "Elimu Hub AI")
+        elif provider == "huggingface":
+            self.api_key = os.getenv("HUGGINGFACE_API_KEY", "")
+            self.model = model or os.getenv("HUGGINGFACE_MODEL", "HuggingFaceH4/zephyr-7b-beta")
+            self.api_url = f"{os.getenv('HUGGINGFACE_BASE_URL', 'https://api-inference.huggingface.co/models')}/{self.model}"
         else:  # fallback to groq
             self.api_key = os.getenv("GROQ_API_KEY", "")
             self.model = model or os.getenv("GROQ_MODEL", "mixtral-8x7b-32768")
@@ -19,47 +23,83 @@ class LLMService:
 
     def call_llm(self, prompt, max_tokens=512, temp=0.7, system_message=None):
         if not self.api_key:
-            return "[ERROR] API key not configured. Please set OPENROUTER_API_KEY or GROQ_API_KEY in environment variables."
+            return f"[ERROR] API key not configured. Please set {self.provider.upper()}_API_KEY in environment variables."
         
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json"
         }
         
-        # Add OpenRouter specific headers
-        if self.provider == "openrouter":
-            headers.update({
-                "HTTP-Referer": self.site_url,
-                "X-Title": self.app_name
-            })
-        
-        # Prepare messages
-        messages = []
-        if system_message:
-            messages.append({"role": "system", "content": system_message})
-        else:
-            messages.append({"role": "system", "content": "You are a helpful AI assistant for educational purposes. Provide clear, accurate, and educational responses."})
-        
-        messages.append({"role": "user", "content": prompt})
-        
-        payload = {
-            "model": self.model,
-            "messages": messages,
-            "max_tokens": max_tokens,
-            "temperature": temp
-        }
-        
         try:
-            response = requests.post(self.api_url, headers=headers, json=payload, timeout=60)
-            response.raise_for_status()
-            data = response.json()
-            return data["choices"][0]["message"]["content"].strip()
+            if self.provider == "huggingface":
+                # Hugging Face Inference API format
+                # Combine system message and prompt for Hugging Face
+                full_prompt = prompt
+                if system_message:
+                    full_prompt = f"<|system|>\n{system_message}\n<|user|>\n{prompt}\n<|assistant|>\n"
+                else:
+                    full_prompt = f"<|system|>\nYou are a helpful AI assistant for educational purposes. Provide clear, accurate, and educational responses.\n<|user|>\n{prompt}\n<|assistant|>\n"
+                
+                payload = {
+                    "inputs": full_prompt,
+                    "parameters": {
+                        "max_new_tokens": max_tokens,
+                        "temperature": temp,
+                        "return_full_text": False
+                    }
+                }
+                
+                response = requests.post(self.api_url, headers=headers, json=payload, timeout=60)
+                response.raise_for_status()
+                data = response.json()
+                
+                # Handle Hugging Face response format
+                if isinstance(data, list) and len(data) > 0:
+                    return data[0].get("generated_text", "").strip()
+                elif isinstance(data, dict):
+                    return data.get("generated_text", "").strip()
+                else:
+                    return "[ERROR] Unexpected response format from Hugging Face API"
+                    
+            else:
+                # OpenAI-compatible format for OpenRouter and Groq
+                # Add OpenRouter specific headers
+                if self.provider == "openrouter":
+                    headers.update({
+                        "HTTP-Referer": self.site_url,
+                        "X-Title": self.app_name
+                    })
+                
+                # Prepare messages
+                messages = []
+                if system_message:
+                    messages.append({"role": "system", "content": system_message})
+                else:
+                    messages.append({"role": "system", "content": "You are a helpful AI assistant for educational purposes. Provide clear, accurate, and educational responses."})
+                
+                messages.append({"role": "user", "content": prompt})
+                
+                payload = {
+                    "model": self.model,
+                    "messages": messages,
+                    "max_tokens": max_tokens,
+                    "temperature": temp
+                }
+                
+                response = requests.post(self.api_url, headers=headers, json=payload, timeout=60)
+                response.raise_for_status()
+                data = response.json()
+                return data["choices"][0]["message"]["content"].strip()
+                
         except requests.exceptions.RequestException as e:
             error_msg = f"[LLM ERROR] Request failed: {str(e)}"
             if hasattr(e, 'response') and e.response is not None:
                 try:
                     error_detail = e.response.json()
-                    error_msg += f" - {error_detail.get('error', {}).get('message', 'Unknown error')}"
+                    if self.provider == "huggingface":
+                        error_msg += f" - {error_detail.get('error', 'Unknown error')}"
+                    else:
+                        error_msg += f" - {error_detail.get('error', {}).get('message', 'Unknown error')}"
                 except:
                     error_msg += f" - HTTP {e.response.status_code}"
             return error_msg
