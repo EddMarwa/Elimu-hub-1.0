@@ -18,20 +18,14 @@ export default function Home() {
           <span className="text-yellow-200 drop-shadow-lg"> AI</span>
         </h1>
         <p className="max-w-xl text-center text-lg sm:text-2xl text-white mb-8 drop-shadow-md">
-          Empowering Kenyan education with AI. Curriculum-aligned answers, lesson planning, and personalized learning for teachers and students.
+          Build your knowledge base from PDFs and get intelligent responses powered by RAG technology. Upload documents, organize by topics, and chat with your content.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Link
-            href="/ai"
-            className="inline-block rounded-full bg-blue-600 hover:bg-blue-700 transition-colors text-white font-semibold px-8 py-3 text-lg shadow-lg"
-          >
-            Try Generative AI
-          </Link>
+        <div className="flex justify-center">
           <Link
             href="/chat"
-            className="inline-block rounded-full bg-green-700 hover:bg-green-800 transition-colors text-white font-semibold px-8 py-3 text-lg shadow-lg"
+            className="inline-block rounded-full bg-green-700 hover:bg-green-800 transition-colors text-white font-semibold px-12 py-4 text-xl shadow-lg transform hover:scale-105 transition-transform"
           >
-            Knowledge Chat
+            📚 Knowledge Base
           </Link>
         </div>
       </main>

@@ -83,7 +83,42 @@ export default function ChatInput({ onSendMessage, isLoading = false, disabled =
 
   return (
     <div className="border-t border-gray-200 bg-white p-4">
+      {/* Hidden file input */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept=".pdf"
+        onChange={handleFileUpload}
+        style={{ display: 'none' }}
+      />
+      
       <div className="flex items-end gap-3">
+        {/* Upload button */}
+        <button
+          onClick={triggerFileUpload}
+          disabled={isUploading || isLoading || disabled}
+          className="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-400 text-white rounded-lg px-4 py-3 transition-all disabled:cursor-not-allowed flex items-center gap-2 font-medium shadow-lg"
+          title="Upload PDF document"
+        >
+          {isUploading ? (
+            <>
+              <div className="flex space-x-1">
+                <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
+                <div className="w-2 h-2 bg-white rounded-full animate-bounce animate-delay-100"></div>
+                <div className="w-2 h-2 bg-white rounded-full animate-bounce animate-delay-200"></div>
+              </div>
+              <span className="text-sm hidden sm:inline">Uploading...</span>
+            </>
+          ) : (
+            <>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+              </svg>
+              <span className="hidden sm:inline">📄 PDF</span>
+            </>
+          )}
+        </button>
+
         <div className="flex-1 relative">
           <textarea
             value={message}
@@ -105,8 +140,8 @@ export default function ChatInput({ onSendMessage, isLoading = false, disabled =
             <>
               <div className="flex space-x-1">
                 <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
-                <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                <div className="w-2 h-2 bg-white rounded-full animate-bounce animate-delay-100"></div>
+                <div className="w-2 h-2 bg-white rounded-full animate-bounce animate-delay-200"></div>
               </div>
               <span className="text-sm">Sending...</span>
             </>
