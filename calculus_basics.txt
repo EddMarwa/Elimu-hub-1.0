@@ -1,0 +1,53 @@
+Introduction to Calculus
+
+Calculus is a fundamental branch of mathematics that deals with rates of change and accumulation. It was developed independently by Sir Isaac Newton and Gottfried Wilhelm Leibniz in the late 17th century.
+
+Basic Concepts:
+
+1. Derivatives
+A derivative represents the rate of change of a function with respect to its variable. If you have a function f(x), its derivative f'(x) tells you how fast f(x) is changing at any point x.
+
+Example: If f(x) = x², then f'(x) = 2x
+This means that at x = 3, the function is changing at a rate of 6 units per unit increase in x.
+
+Applications of Derivatives:
+- Finding the slope of a curve at any point
+- Determining maximum and minimum values
+- Analyzing motion (velocity and acceleration)
+- Optimization problems in economics and engineering
+
+2. Integrals
+Integration is the reverse process of differentiation. While derivatives measure rates of change, integrals measure accumulation or the area under curves.
+
+Example: If f'(x) = 2x, then ∫2x dx = x² + C (where C is the constant of integration)
+
+Applications of Integrals:
+- Calculating areas and volumes
+- Finding the total distance traveled given velocity
+- Determining the center of mass
+- Solving differential equations
+
+3. Fundamental Theorem of Calculus
+This theorem connects derivatives and integrals, showing that they are inverse operations.
+
+The theorem states that if F(x) is an antiderivative of f(x), then:
+∫[a to b] f(x) dx = F(b) - F(a)
+
+Common Derivative Rules:
+- Power Rule: d/dx(x^n) = nx^(n-1)
+- Product Rule: d/dx(uv) = u'v + uv'
+- Chain Rule: d/dx(f(g(x))) = f'(g(x)) · g'(x)
+- Quotient Rule: d/dx(u/v) = (u'v - uv')/v²
+
+Common Integration Techniques:
+- Substitution Method
+- Integration by Parts
+- Partial Fractions
+- Trigonometric Substitution
+
+Real-World Applications:
+1. Physics: Calculating velocity and acceleration from position functions
+2. Economics: Marginal cost and revenue analysis
+3. Biology: Population growth models
+4. Engineering: Optimization of structures and systems
+5. Medicine: Drug concentration modeling in bloodstream

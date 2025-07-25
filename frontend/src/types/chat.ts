@@ -1,17 +1,30 @@
-export type Subject = 'Mathematics' | 'English' | 'Science' | 'Kiswahili' | 'History'
-
 export interface ChatMessage {
   id: string
   content: string
   isUser: boolean
   timestamp: Date
-  subject?: Subject
+  chatSessionId?: string
 }
 
 export interface ChatHistory {
   id: string
   title: string
-  subject: Subject
   timestamp: Date
   lastMessage: string
+  chatSessionId: string
+}
+
+export interface UploadedDocument {
+  id: string
+  filename: string
+  topic: string
+  uploadedAt: string
+  chatSessionId?: string
+}
+
+export interface ChatSession {
+  id: string
+  title: string
+  documents: UploadedDocument[]
+  createdAt: Date
 } 

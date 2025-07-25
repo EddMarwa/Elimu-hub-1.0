@@ -1,28 +1,59 @@
 'use client'
 
-import { useState } from 'react'
-import { Subject, ChatHistory } from '@/types/chat'
+import { useState, useRef } from 'react'
+import { ChatHistory, UploadedDocument } from '@/types/chat'
 
 interface SidebarProps {
-  currentSubject: Subject
-  onSubjectChange: (subject: Subject) => void
   chatHistory: ChatHistory[]
   onChatSelect: (chatId: string) => void
   isCollapsed?: boolean
   onToggleCollapse?: () => void
+  uploadedDocuments: UploadedDocument[]
+  onDocumentUpload: (file: File, topic: string) => Promise<void>
+  currentChatSessionId: string
 }
 
-const subjects: Subject[] = ['Mathematics', 'English', 'Science', 'Kiswahili', 'History']
-
 export default function Sidebar({
-  currentSubject,
-  onSubjectChange,
   chatHistory,
   onChatSelect,
   isCollapsed = false,
-  onToggleCollapse
+  onToggleCollapse,
+  uploadedDocuments,
+  onDocumentUpload,
+  currentChatSessionId
 }: SidebarProps) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isUploading, setIsUploading] = useState(false)
+  const [selectedTopic, setSelectedTopic] = useState('General')
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  const topics = ['General', 'Mathematics', 'Science', 'History', 'Literature', 'Technology']
+
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+
+    if (file.type !== 'application/pdf' && !file.type.startsWith('text/')) {
+      alert('Please upload only PDF or text files')
+      return
+    }
+
+    setIsUploading(true)
+    try {
+      await onDocumentUpload(file, selectedTopic)
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
+    } catch (error) {
+      console.error('Upload failed:', error)
+      alert('Upload failed. Please try again.')
+    } finally {
+      setIsUploading(false)
+    }
+  }
+
+  const currentSessionDocuments = uploadedDocuments.filter(
+    doc => doc.chatSessionId === currentChatSessionId
+  )
 
   const formatTime = (date: Date) => {
     const now = new Date()
@@ -77,20 +108,72 @@ export default function Sidebar({
         </div>
       </div>
 
-      {/* Subject Filter */}
+      {/* Document Upload Section */}
       <div className="p-4 border-b border-gray-200">
-        <label className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Upload Documents</label>
+        
+        {/* Topic Selection */}
         <select
-          value={currentSubject}
-          onChange={(e) => onSubjectChange(e.target.value as Subject)}
-          className="w-full px-3 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white text-gray-900"
+          value={selectedTopic}
+          onChange={(e) => setSelectedTopic(e.target.value)}
+          className="w-full px-3 py-2 mb-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white text-gray-900"
+          title="Select topic for document"
         >
-          {subjects.map((subject) => (
-            <option key={subject} value={subject}>
-              {subject}
+          {topics.map((topic) => (
+            <option key={topic} value={topic}>
+              {topic}
             </option>
           ))}
         </select>
+
+        {/* File Upload */}
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept=".pdf,.txt,.doc,.docx"
+          onChange={handleFileUpload}
+          className="hidden"
+        />
+        
+        <button
+          onClick={() => fileInputRef.current?.click()}
+          disabled={isUploading}
+          className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+        >
+          {isUploading ? (
+            <>
+              <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" className="opacity-25"></circle>
+                <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" className="opacity-75"></path>
+              </svg>
+              Uploading...
+            </>
+          ) : (
+            <>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+              </svg>
+              Upload File
+            </>
+          )}
+        </button>
+
+        {/* Current Session Documents */}
+        {currentSessionDocuments.length > 0 && (
+          <div className="mt-3">
+            <p className="text-xs text-gray-600 mb-2">Documents in this chat:</p>
+            <div className="space-y-1 max-h-24 overflow-y-auto">
+              {currentSessionDocuments.map((doc) => (
+                <div key={doc.id} className="flex items-center gap-2 text-xs text-gray-700 bg-gray-50 p-2 rounded">
+                  <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <span className="truncate">{doc.filename}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Chat History */}
@@ -120,9 +203,6 @@ export default function Sidebar({
                       <h4 className="text-sm font-medium text-gray-900 truncate">{chat.title}</h4>
                       <p className="text-xs text-gray-500 truncate mt-1">{chat.lastMessage}</p>
                       <div className="flex items-center gap-2 mt-2">
-                        <span className="inline-block px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                          {chat.subject}
-                        </span>
                         <span className="text-xs text-gray-500">{formatTime(chat.timestamp)}</span>
                       </div>
                     </div>

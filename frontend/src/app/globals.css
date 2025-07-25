@@ -24,3 +24,21 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom animation delays */
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-200 {
+  animation-delay: 0.2s;
+}
+
+/* Custom height utilities */
+.min-h-11 {
+  min-height: 44px;
+}
+
+.max-h-30 {
+  max-height: 120px;
+}

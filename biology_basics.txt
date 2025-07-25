@@ -1,0 +1,91 @@
+Introduction to Biology
+
+Biology is the scientific study of life and living organisms. It encompasses various levels of organization from molecules to ecosystems.
+
+Major Branches of Biology:
+
+1. Cell Biology
+The study of cells, their structure, function, and behavior.
+
+Cell Structure:
+- Nucleus: Contains DNA and controls cell activities
+- Mitochondria: Powerhouses of the cell, produce ATP
+- Ribosomes: Protein synthesis factories
+- Endoplasmic Reticulum: Transport system within the cell
+- Golgi Apparatus: Modifies and packages proteins
+
+Cell Types:
+- Prokaryotic cells: No nucleus (bacteria)
+- Eukaryotic cells: Have nucleus (plants, animals, fungi)
+
+2. Genetics
+The study of heredity and genetic variation.
+
+Key Concepts:
+- DNA: Deoxyribonucleic acid, carries genetic information
+- Genes: Segments of DNA that code for traits
+- Chromosomes: Structures containing many genes
+- Mutations: Changes in DNA sequence
+- Inheritance patterns: How traits pass from parents to offspring
+
+Mendel's Laws:
+- Law of Segregation: Each parent has two copies of each gene
+- Law of Independent Assortment: Genes for different traits are inherited independently
+
+3. Evolution
+The change in heritable traits of biological populations over time.
+
+Darwin's Theory of Natural Selection:
+- Variation exists in populations
+- Some variations are heritable
+- More offspring are produced than can survive
+- Individuals with favorable traits are more likely to survive and reproduce
+
+Evidence for Evolution:
+- Fossil record
+- Comparative anatomy
+- Molecular biology
+- Biogeography
+- Direct observation
+
+4. Ecology
+The study of interactions between organisms and their environment.
+
+Levels of Organization:
+- Individual organism
+- Population (same species in an area)
+- Community (different species in an area)
+- Ecosystem (community plus environment)
+- Biosphere (all ecosystems on Earth)
+
+Energy Flow:
+- Producers (plants) convert sunlight to chemical energy
+- Primary consumers (herbivores) eat producers
+- Secondary consumers (carnivores) eat primary consumers
+- Decomposers break down dead organic matter
+
+5. Human Biology
+The study of human body structure and function.
+
+Major Body Systems:
+- Circulatory System: Heart, blood vessels, blood
+- Respiratory System: Lungs, airways
+- Digestive System: Stomach, intestines, liver
+- Nervous System: Brain, spinal cord, nerves
+- Immune System: Defends against disease
+- Skeletal System: Bones and joints
+- Muscular System: Muscles for movement
+
+Photosynthesis:
+The process by which plants convert light energy into chemical energy.
+Equation: 6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂
+
+Cellular Respiration:
+The process by which cells break down glucose to release energy.
+Equation: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP
+
+Important Biological Molecules:
+- Carbohydrates: Energy storage and structure
+- Proteins: Enzymes, structure, transport
+- Lipids: Cell membranes, energy storage
+- Nucleic acids: DNA and RNA for genetic information

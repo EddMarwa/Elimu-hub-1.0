@@ -157,6 +157,7 @@ export default function ChatInterface() {
         <ChatInput
           onSendMessage={handleSendMessage}
           isLoading={isLoading}
+          currentSubject={currentSubject}
         />
       </div>
     </div>
