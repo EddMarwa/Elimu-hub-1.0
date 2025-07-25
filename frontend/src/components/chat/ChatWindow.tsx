@@ -1,16 +1,15 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { ChatMessage, Subject } from '@/types/chat'
+import { ChatMessage } from '@/types/chat'
 import MessageBubble from './MessageBubble'
 
 interface ChatWindowProps {
   messages: ChatMessage[]
-  currentSubject: Subject
   isLoading?: boolean
 }
 
-export default function ChatWindow({ messages, currentSubject, isLoading = false }: ChatWindowProps) {
+export default function ChatWindow({ messages, isLoading = false }: ChatWindowProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   const scrollToBottom = () => {
@@ -28,7 +27,7 @@ export default function ChatWindow({ messages, currentSubject, isLoading = false
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-lg font-semibold text-gray-900">Elimu Hub Chat</h2>
-            <p className="text-sm text-gray-600">Subject: {currentSubject}</p>
+            <p className="text-sm text-gray-600">AI Learning Assistant</p>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
@@ -49,7 +48,7 @@ export default function ChatWindow({ messages, currentSubject, isLoading = false
               </div>
               <h3 className="text-lg font-medium text-gray-900 mb-2">Welcome to Elimu Hub!</h3>
               <p className="text-gray-600 max-w-md">
-                Ask me anything about {currentSubject}. I'm here to help you learn and understand the curriculum better.
+                Ask me anything about your uploaded documents. I'm here to help you learn and understand the content better.
               </p>
             </div>
           </div>

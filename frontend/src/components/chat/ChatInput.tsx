@@ -6,10 +6,9 @@ interface ChatInputProps {
   onSendMessage: (message: string) => void
   isLoading?: boolean
   disabled?: boolean
-  currentSubject?: string
 }
 
-export default function ChatInput({ onSendMessage, isLoading = false, disabled = false, currentSubject = 'General' }: ChatInputProps) {
+export default function ChatInput({ onSendMessage, isLoading = false, disabled = false }: ChatInputProps) {
   const [message, setMessage] = useState('')
   const [isUploading, setIsUploading] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -49,7 +48,7 @@ export default function ChatInput({ onSendMessage, isLoading = false, disabled =
     try {
       const formData = new FormData()
       formData.append('file', file)
-      formData.append('topic', currentSubject)
+      formData.append('topic', 'General')
 
       const response = await fetch('http://localhost:8000/api/v1/upload', {
         method: 'POST',
@@ -63,7 +62,7 @@ export default function ChatInput({ onSendMessage, isLoading = false, disabled =
       const result = await response.json()
       
       // Send a message indicating successful upload
-      onSendMessage(`📄 Successfully uploaded "${file.name}" to ${currentSubject} topic. You can now ask questions about this document!`)
+      onSendMessage(`📄 Successfully uploaded "${file.name}". You can now ask questions about this document!`)
       
     } catch (error) {
       console.error('Upload error:', error)

@@ -1,17 +1,24 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ChatMessage, ChatHistory, Subject } from '@/types/chat'
+import { ChatMessage, ChatHistory, UploadedDocument } from '@/types/chat'
 import Sidebar from './Sidebar'
 import ChatWindow from './ChatWindow'
 import ChatInput from './ChatInput'
 
 export default function ChatInterface() {
-  const [currentSubject, setCurrentSubject] = useState<Subject>('Mathematics')
+  const [currentChatSessionId, setCurrentChatSessionId] = useState<string>('')
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [chatHistory, setChatHistory] = useState<ChatHistory[]>([])
+  const [uploadedDocuments, setUploadedDocuments] = useState<UploadedDocument[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
+
+  // Initialize a new chat session on component mount
+  useEffect(() => {
+    const sessionId = `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
+    setCurrentChatSessionId(sessionId)
+  }, [])
 
   // Real AI response function using backend API
   const generateAIResponse = async (userMessage: string): Promise<string> => {
@@ -23,7 +30,7 @@ export default function ChatInterface() {
         },
         body: JSON.stringify({
           question: userMessage,
-          topic: currentSubject
+          chatSessionId: currentChatSessionId
         })
       })
 
@@ -45,12 +52,43 @@ export default function ChatInterface() {
     }
   }
 
+  // Document upload handler
+  const handleDocumentUpload = async (file: File, topic: string): Promise<void> => {
+    const formData = new FormData()
+    formData.append('file', file)
+    formData.append('topic', topic)
+    formData.append('chatSessionId', currentChatSessionId)
+
+    const response = await fetch('http://localhost:8000/api/v1/upload', {
+      method: 'POST',
+      body: formData
+    })
+
+    if (!response.ok) {
+      throw new Error(`Upload failed: ${response.status}`)
+    }
+
+    const result = await response.json()
+    
+    // Add to uploaded documents list
+    const newDocument: UploadedDocument = {
+      id: result.id.toString(),
+      filename: result.filename,
+      topic: result.topic || topic,
+      uploadedAt: result.uploaded_at,
+      chatSessionId: currentChatSessionId
+    }
+    
+    setUploadedDocuments(prev => [...prev, newDocument])
+  }
+
   const handleSendMessage = async (content: string) => {
     const userMessage: ChatMessage = {
       id: Date.now().toString(),
       content,
       isUser: true,
-      timestamp: new Date()
+      timestamp: new Date(),
+      chatSessionId: currentChatSessionId
     }
 
     setMessages(prev => [...prev, userMessage])
@@ -63,7 +101,7 @@ export default function ChatInterface() {
         content: aiResponse,
         isUser: false,
         timestamp: new Date(),
-        subject: currentSubject
+        chatSessionId: currentChatSessionId
       }
 
       setMessages(prev => [...prev, aiMessage])
@@ -72,9 +110,9 @@ export default function ChatInterface() {
       const newChatHistory: ChatHistory = {
         id: Date.now().toString(),
         title: content.length > 30 ? content.substring(0, 30) + '...' : content,
-        subject: currentSubject,
         timestamp: new Date(),
-        lastMessage: aiResponse.length > 50 ? aiResponse.substring(0, 50) + '...' : aiResponse
+        lastMessage: aiResponse.length > 50 ? aiResponse.substring(0, 50) + '...' : aiResponse,
+        chatSessionId: currentChatSessionId
       }
 
       setChatHistory(prev => [newChatHistory, ...prev.slice(0, 9)]) // Keep only 10 most recent
@@ -85,7 +123,8 @@ export default function ChatInterface() {
         id: (Date.now() + 1).toString(),
         content: "Sorry, I'm having trouble responding right now. Please try again.",
         isUser: false,
-        timestamp: new Date()
+        timestamp: new Date(),
+        chatSessionId: currentChatSessionId
       }
       setMessages(prev => [...prev, errorMessage])
     } finally {
@@ -93,14 +132,11 @@ export default function ChatInterface() {
     }
   }
 
-  const handleSubjectChange = (subject: Subject) => {
-    setCurrentSubject(subject)
-    setMessages([]) // Clear messages when subject changes
-  }
-
   const handleChatSelect = (chatId: string) => {
-    // In a real app, this would load the specific chat
-    console.log('Loading chat:', chatId)
+    // Create a new session when selecting a different chat
+    const sessionId = `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
+    setCurrentChatSessionId(sessionId)
+    setMessages([]) // Clear messages when starting new chat
   }
 
   return (
@@ -108,12 +144,13 @@ export default function ChatInterface() {
       {/* Sidebar - hidden on mobile by default */}
       <div className="hidden md:block">
         <Sidebar
-          currentSubject={currentSubject}
-          onSubjectChange={handleSubjectChange}
           chatHistory={chatHistory}
           onChatSelect={handleChatSelect}
           isCollapsed={isSidebarCollapsed}
           onToggleCollapse={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+          uploadedDocuments={uploadedDocuments}
+          onDocumentUpload={handleDocumentUpload}
+          currentChatSessionId={currentChatSessionId}
         />
       </div>
 
@@ -136,12 +173,13 @@ export default function ChatInterface() {
           <div className="absolute inset-0 bg-black bg-opacity-50" onClick={() => setIsSidebarCollapsed(true)} />
           <div className="absolute left-0 top-0 h-full w-80 bg-white">
             <Sidebar
-              currentSubject={currentSubject}
-              onSubjectChange={handleSubjectChange}
               chatHistory={chatHistory}
               onChatSelect={handleChatSelect}
               isCollapsed={false}
               onToggleCollapse={() => setIsSidebarCollapsed(true)}
+              uploadedDocuments={uploadedDocuments}
+              onDocumentUpload={handleDocumentUpload}
+              currentChatSessionId={currentChatSessionId}
             />
           </div>
         </div>
@@ -151,13 +189,11 @@ export default function ChatInterface() {
       <div className="flex-1 flex flex-col">
         <ChatWindow
           messages={messages}
-          currentSubject={currentSubject}
           isLoading={isLoading}
         />
         <ChatInput
           onSendMessage={handleSendMessage}
           isLoading={isLoading}
-          currentSubject={currentSubject}
         />
       </div>
     </div>

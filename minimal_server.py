@@ -53,7 +53,9 @@ def init_db():
             filename TEXT NOT NULL,
             topic TEXT NOT NULL,
             content TEXT NOT NULL,
-            uploaded_at TEXT NOT NULL
+            uploaded_at TEXT NOT NULL,
+            chat_session_id TEXT,
+            page_number INTEGER DEFAULT NULL
         )
     """)
     
@@ -93,58 +95,69 @@ class ChatRequest(BaseModel):
     question: str
     topic: Optional[str] = None
     max_tokens: Optional[int] = 300
+    chatSessionId: Optional[str] = None
 
 class ChatResponse(BaseModel):
     answer: str
-    sources: List[str]
+    sources: List[dict]  # Changed from List[str] to List[dict] to include page info
 
 # Simple text extraction function
-def extract_text_from_file(file_content: bytes, filename: str) -> str:
-    """Extract text from uploaded file."""
+def extract_text_from_file(file_content: bytes, filename: str) -> List[dict]:
+    """Extract text from uploaded file with page information."""
     try:
         # For text files
         if filename.endswith('.txt'):
-            return file_content.decode('utf-8')
+            return [{"content": file_content.decode('utf-8'), "page": 1}]
         
         # For PDF files (if PyMuPDF is available)
         try:
             import fitz  # PyMuPDF
             doc = fitz.open(stream=file_content, filetype="pdf")
-            text = ""
-            for page in doc:
-                text += page.get_text()
+            pages = []
+            for page_num in range(len(doc)):
+                page = doc.load_page(page_num)
+                text = page.get_text()
+                if text.strip():  # Only add pages with content
+                    pages.append({"content": text, "page": page_num + 1})
             doc.close()
-            return text
+            return pages if pages else [{"content": f"No text found in {filename}", "page": 1}]
         except ImportError:
             # Fallback for PDF without PyMuPDF
-            return f"PDF content from {filename} (text extraction not available - install PyMuPDF for full PDF support)"
+            return [{"content": f"PDF content from {filename} (text extraction not available - install PyMuPDF for full PDF support)", "page": 1}]
     
     except Exception as e:
-        return f"Error extracting text from {filename}: {str(e)}"
+        return [{"content": f"Error extracting text from {filename}: {str(e)}", "page": 1}]
 
-def simple_search(query: str, topic: str = None, limit: int = 5) -> List[dict]:
+def simple_search(query: str, topic: str = None, limit: int = 5, chat_session_id: str = None) -> List[dict]:
     """Simple keyword-based search in documents."""
     conn = sqlite3.connect(str(DB_PATH))
     cursor = conn.cursor()
     
     query_words = query.lower().split()
     
+    # Build query conditions
+    conditions = ["LOWER(content) LIKE ?"]
+    params = [f"%{' '.join(query_words)}%"]
+    
     if topic:
-        cursor.execute("""
-            SELECT filename, topic, content FROM documents 
-            WHERE topic = ? AND LOWER(content) LIKE ?
-            LIMIT ?
-        """, (topic, f"%{' '.join(query_words)}%", limit))
-    else:
-        cursor.execute("""
-            SELECT filename, topic, content FROM documents 
-            WHERE LOWER(content) LIKE ?
-            LIMIT ?
-        """, (f"%{' '.join(query_words)}%", limit))
+        conditions.append("topic = ?")
+        params.append(topic)
+    
+    if chat_session_id:
+        conditions.append("chat_session_id = ?")
+        params.append(chat_session_id)
+    
+    params.append(limit)
+    
+    cursor.execute(f"""
+        SELECT filename, topic, content, page_number FROM documents 
+        WHERE {' AND '.join(conditions)}
+        LIMIT ?
+    """, params)
     
     results = []
     for row in cursor.fetchall():
-        filename, topic, content = row
+        filename, topic, content, page_number = row
         # Simple scoring based on keyword occurrences
         score = sum(content.lower().count(word) for word in query_words) / len(content)
         
@@ -163,13 +176,14 @@ def simple_search(query: str, topic: str = None, limit: int = 5) -> List[dict]:
             "content": snippet,
             "filename": filename,
             "topic": topic,
+            "page": page_number,
             "score": score
         })
     
     conn.close()
     return sorted(results, key=lambda x: x["score"], reverse=True)
 
-def simple_llm_chat(question: str, context: str = "") -> str:
+def simple_llm_chat(question: str, context: str = "", sources: List[dict] = None) -> str:
     """Simple LLM chat using free APIs or fallback responses."""
     
     # Try to use Groq (if API key is available)
@@ -181,9 +195,23 @@ def simple_llm_chat(question: str, context: str = "") -> str:
                 "Content-Type": "application/json"
             }
             
+            # Create a comprehensive prompt with page references
+            source_info = ""
+            if sources:
+                source_info = "\n\nSources:\n"
+                for source in sources:
+                    page_info = f" (Page {source.get('page', 'N/A')})" if source.get('page') else ""
+                    source_info += f"- {source['filename']}{page_info}\n"
+            
+            system_prompt = """You are an AI educational assistant. Answer questions based on the provided context from uploaded documents. 
+            Always cite your sources by mentioning the document name and page number when available.
+            Be concise, accurate, and educational in your responses."""
+            
+            user_prompt = f"Question: {question}\n\nContext from documents:\n{context}{source_info}"
+            
             messages = [
-                {"role": "system", "content": "You are a helpful educational AI assistant. Use the provided context to answer questions accurately."},
-                {"role": "user", "content": f"Context: {context}\n\nQuestion: {question}"}
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
             ]
             
             response = requests.post(
@@ -192,7 +220,7 @@ def simple_llm_chat(question: str, context: str = "") -> str:
                 json={
                     "model": "llama3-8b-8192",
                     "messages": messages,
-                    "max_tokens": 300,
+                    "max_tokens": 400,
                     "temperature": 0.7
                 },
                 timeout=30
@@ -203,11 +231,22 @@ def simple_llm_chat(question: str, context: str = "") -> str:
         except Exception as e:
             print(f"Groq API error: {e}")
     
-    # Fallback: Simple rule-based responses
+    # Fallback: Simple rule-based responses (without the note)
     if context:
-        return f"Based on the uploaded documents, here's what I found about '{question}':\n\n{context[:500]}...\n\n(Note: Set GROQ_API_KEY in environment for AI-powered responses)"
+        response = f"Based on the uploaded documents:\n\n{context[:500]}"
+        if len(context) > 500:
+            response += "..."
+        
+        # Add source information if available
+        if sources:
+            response += "\n\nSources:\n"
+            for source in sources:
+                page_info = f" (Page {source.get('page', 'N/A')})" if source.get('page') else ""
+                response += f"- {source['filename']}{page_info}\n"
+        
+        return response
     else:
-        return f"I don't have specific information about '{question}' in the uploaded documents. Please upload relevant PDFs first. (Note: Set GROQ_API_KEY in environment for AI-powered responses)"
+        return "I don't have specific information about this question in the uploaded documents. Please upload relevant documents first."
 
 # Routes
 @app.get("/")
@@ -219,7 +258,11 @@ async def health_check():
     return {"status": "healthy", "timestamp": datetime.now().isoformat()}
 
 @app.post("/upload", response_model=DocumentResponse)
-async def upload_document(file: UploadFile = File(...), topic: str = Form("General")):
+async def upload_document(
+    file: UploadFile = File(...), 
+    topic: str = Form("General"), 
+    chatSessionId: str = Form(None)
+):
     """Upload a document to the knowledge base."""
     
     if not file.filename:
@@ -228,10 +271,10 @@ async def upload_document(file: UploadFile = File(...), topic: str = Form("Gener
     # Read file content
     content = await file.read()
     
-    # Extract text
-    text_content = extract_text_from_file(content, file.filename)
+    # Extract text with page information
+    pages_content = extract_text_from_file(content, file.filename)
     
-    if not text_content.strip():
+    if not pages_content or not any(page['content'].strip() for page in pages_content):
         raise HTTPException(status_code=400, detail="Could not extract text from file")
     
     # Save to database
@@ -244,23 +287,34 @@ async def upload_document(file: UploadFile = File(...), topic: str = Form("Gener
         VALUES (?, '', ?)
     """, (topic, datetime.now().isoformat()))
     
-    # Insert document
-    cursor.execute("""
-        INSERT INTO documents (filename, topic, content, uploaded_at)
-        VALUES (?, ?, ?, ?)
-    """, (file.filename, topic, text_content, datetime.now().isoformat()))
+    # Insert each page as a separate document entry for better search granularity
+    doc_ids = []
+    for page_data in pages_content:
+        if page_data['content'].strip():  # Only insert pages with content
+            cursor.execute("""
+                INSERT INTO documents (filename, topic, content, uploaded_at, chat_session_id, page_number)
+                VALUES (?, ?, ?, ?, ?, ?)
+            """, (
+                file.filename, 
+                topic, 
+                page_data['content'], 
+                datetime.now().isoformat(), 
+                chatSessionId,
+                page_data['page']
+            ))
+            doc_ids.append(cursor.lastrowid)
     
-    doc_id = cursor.lastrowid
     conn.commit()
     conn.close()
     
-    # Save original file
-    file_path = PDF_DIR / f"{doc_id}_{file.filename}"
+    # Save original file (use first doc_id for filename)
+    primary_doc_id = doc_ids[0] if doc_ids else 1
+    file_path = PDF_DIR / f"{primary_doc_id}_{file.filename}"
     with open(file_path, "wb") as f:
         f.write(content)
     
     return DocumentResponse(
-        id=doc_id,
+        id=primary_doc_id,
         filename=file.filename,
         topic=topic,
         uploaded_at=datetime.now().isoformat()
@@ -308,29 +362,50 @@ async def list_topics():
     return topics
 
 @app.get("/search")
-async def search_documents(query: str, topic: str = None, limit: int = 5):
+async def search_documents(query: str, topic: str = None, limit: int = 5, chatSessionId: str = None):
     """Search documents by keyword."""
     if not query.strip():
         raise HTTPException(status_code=400, detail="Query cannot be empty")
     
-    results = simple_search(query, topic, limit)
+    results = simple_search(query, topic, limit, chatSessionId)
     return results
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat_with_documents(request: ChatRequest):
     """Chat with the knowledge base using RAG."""
     
-    # Search for relevant documents
-    search_results = simple_search(request.question, request.topic, 3)
+    # Search for relevant documents in the current chat session
+    search_results = simple_search(
+        request.question, 
+        request.topic, 
+        3, 
+        chat_session_id=request.chatSessionId
+    )
+    
+    # If no results in current session, search globally
+    if not search_results and request.chatSessionId:
+        search_results = simple_search(request.question, request.topic, 3)
     
     # Combine context from search results
     context = "\n\n".join([f"From {r['filename']}: {r['content']}" for r in search_results])
     
-    # Get AI response
-    answer = simple_llm_chat(request.question, context)
+    # Prepare source information with page numbers
+    sources = []
+    for r in search_results:
+        source_info = {
+            'filename': r['filename'],
+            'page': r.get('page'),
+            'topic': r['topic']
+        }
+        sources.append(source_info)
     
-    # Extract source filenames
-    sources = [r['filename'] for r in search_results]
+    # Get AI response with source information
+    answer = simple_llm_chat(request.question, context, sources)
+    
+    return ChatResponse(
+        answer=answer,
+        sources=sources
+    )
     
     return ChatResponse(
         answer=answer,
@@ -412,9 +487,9 @@ async def api_llm_chat_completions(request: dict):
         return {"error": str(e)}
 
 @app.get("/api/v1/search")
-async def api_search_documents(query: str, limit: int = 5):
+async def api_search_documents(query: str, limit: int = 5, chatSessionId: str = None):
     """Search documents with API v1 prefix for frontend compatibility."""
-    return await search_documents(query, None, limit)
+    return await search_documents(query, None, limit, chatSessionId)
 
 @app.get("/api/v1/documents")
 async def api_list_documents():
@@ -422,9 +497,13 @@ async def api_list_documents():
     return await list_documents()
 
 @app.post("/api/v1/upload")
-async def api_upload_document(file: UploadFile = File(...), topic: str = Form("General")):
+async def api_upload_document(
+    file: UploadFile = File(...), 
+    topic: str = Form("General"), 
+    chatSessionId: str = Form(None)
+):
     """Upload document with API v1 prefix for frontend compatibility."""
-    return await upload_document(file, topic)
+    return await upload_document(file, topic, chatSessionId)
 
 # Initialize database on startup
 @app.on_event("startup")
