@@ -190,7 +190,7 @@ def simple_llm_chat(question: str, context: str = "") -> str:
                 "https://api.groq.com/openai/v1/chat/completions",
                 headers=headers,
                 json={
-                    "model": "mixtral-8x7b-32768",
+                    "model": "llama3-8b-8192",
                     "messages": messages,
                     "max_tokens": 300,
                     "temperature": 0.7
@@ -411,6 +411,11 @@ async def api_llm_chat_completions(request: dict):
     except Exception as e:
         return {"error": str(e)}
 
+@app.get("/api/v1/search")
+async def api_search_documents(query: str, limit: int = 5):
+    """Search documents with API v1 prefix for frontend compatibility."""
+    return await search_documents(query, None, limit)
+
 @app.get("/api/v1/documents")
 async def api_list_documents():
     """List documents with API v1 prefix for frontend compatibility."""
@@ -420,11 +425,6 @@ async def api_list_documents():
 async def api_upload_document(file: UploadFile = File(...), topic: str = Form("General")):
     """Upload document with API v1 prefix for frontend compatibility."""
     return await upload_document(file, topic)
-
-@app.get("/api/v1/search")
-async def api_search_documents(query: str, limit: int = 5):
-    """Search documents with API v1 prefix for frontend compatibility."""
-    return await search_documents(query, limit)
 
 # Initialize database on startup
 @app.on_event("startup")
