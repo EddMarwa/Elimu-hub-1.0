@@ -133,6 +133,7 @@ export default function Sidebar({
           accept=".pdf,.txt,.doc,.docx"
           onChange={handleFileUpload}
           className="hidden"
+          aria-label="Upload document file"
         />
         
         <button
