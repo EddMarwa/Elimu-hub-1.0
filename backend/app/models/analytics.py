@@ -1,10 +1,8 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime, Float, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 from pydantic import BaseModel
 from typing import Optional, Dict, Any
-
-Base = declarative_base()
+from app.db.database import Base
 
 class APIRequest(Base):
     __tablename__ = "api_requests"
