@@ -89,7 +89,9 @@ export default function ChatInput({ onSendMessage, isLoading = false, disabled =
         type="file"
         accept=".pdf"
         onChange={handleFileUpload}
-        style={{ display: 'none' }}
+        className="hidden"
+        aria-label="Upload PDF file"
+        title="Upload PDF file"
       />
       
       <div className="flex items-end gap-3">
@@ -125,10 +127,9 @@ export default function ChatInput({ onSendMessage, isLoading = false, disabled =
             onChange={(e) => setMessage(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Type your message here... (Press Enter to send)"
-            className="w-full resize-none border-2 border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-gradient-to-r from-gray-50 to-white text-gray-900 placeholder-gray-500"
+            className="w-full resize-none border-2 border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-gradient-to-r from-gray-50 to-white text-gray-900 placeholder-gray-500 min-h-11 max-h-30"
             rows={1}
             disabled={disabled || isLoading}
-            style={{ minHeight: '44px', maxHeight: '120px' }}
           />
         </div>
         <button
