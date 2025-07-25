@@ -4301,3 +4301,30 @@ The equation given i...
 2025-07-23 17:09:43,007 - elimu_hub - INFO - log_requests:36 - Request: POST http://localhost:8000/api/v1/llm/chat/completions
 2025-07-23 17:09:44,067 - elimu_hub - INFO - log_requests:43 - Response: 200 - 1.060s
 2025-07-23 17:09:44,068 - elimu_hub - ERROR - log_requests:61 - Error logging analytics: module 'app.api.analytics' has no attribute 'log_api_request'
+2025-07-25 09:58:59,489 - elimu_hub - INFO - main:118 - Starting complete database setup...
+2025-07-25 09:58:59,491 - elimu_hub - ERROR - create_all_tables:38 - Error creating tables: cannot import name 'Document' from 'app.models.document' (C:\Users\Edd\Documents\Github\Elimu-hub-1.0\backend\app\models\document.py)
+2025-07-25 09:58:59,492 - elimu_hub - ERROR - main:126 - Failed to create tables
+2025-07-25 09:59:35,299 - elimu_hub - INFO - main:118 - Starting complete database setup...
+2025-07-25 09:59:35,301 - elimu_hub - INFO - create_all_tables:34 - All database tables created successfully
+2025-07-25 09:59:35,308 - elimu_hub - INFO - verify_tables:53 - Existing tables: ['documents', 'topics', 'users', 'document_fts', 'document_fts_data', 'document_fts_idx', 'document_fts_content', 'document_fts_docsize', 'document_fts_config']
+2025-07-25 09:59:35,308 - elimu_hub - ERROR - verify_tables:58 - Missing tables: ['chat_sessions', 'chat_messages', 'api_requests']
+2025-07-25 09:59:35,309 - elimu_hub - ERROR - main:131 - Table verification failed
+2025-07-25 10:00:33,545 - elimu_hub - INFO - main:118 - Starting complete database setup...
+2025-07-25 10:00:33,549 - elimu_hub - INFO - create_all_tables:34 - All database tables created successfully
+2025-07-25 10:00:33,551 - elimu_hub - INFO - verify_tables:53 - Existing tables: ['documents', 'topics', 'users', 'document_fts', 'document_fts_data', 'document_fts_idx', 'document_fts_content', 'document_fts_docsize', 'document_fts_config', 'chat_sessions', 'api_requests', 'user_activities', 'system_metrics', 'chat_messages']
+2025-07-25 10:00:33,552 - elimu_hub - INFO - verify_tables:61 - All required tables exist
+2025-07-25 10:00:33,600 - elimu_hub - INFO - setup_fts:109 - FTS5 setup completed
+2025-07-25 10:00:33,601 - elimu_hub - INFO - main:139 - Complete database setup completed successfully!
+2025-07-25 10:01:23,276 - elimu_hub - INFO - create_admin_user:47 - Admin user created successfully: admin1@elimuhub.com
+2025-07-25 10:13:48,187 - elimu_hub - INFO - startup_event:109 - Starting Elimu Hub API...
+2025-07-25 10:13:48,187 - elimu_hub - INFO - startup_event:110 - Environment: PRODUCTION
+2025-07-25 10:13:48,188 - elimu_hub - INFO - startup_event:111 - Log level: INFO
+2025-07-25 10:13:48,188 - elimu_hub - INFO - start:50 - Starting job queue with 4 workers
+2025-07-25 10:13:48,189 - elimu_hub - INFO - _worker:70 - Worker 0 started
+2025-07-25 10:13:48,190 - elimu_hub - INFO - _worker:70 - Worker 1 started
+2025-07-25 10:13:48,191 - elimu_hub - INFO - _worker:70 - Worker 2 started
+2025-07-25 10:13:48,192 - elimu_hub - INFO - _worker:70 - Worker 3 started
+2025-07-25 10:13:48,192 - elimu_hub - INFO - startup_event:115 - Job queue started
+2025-07-25 10:13:48,193 - elimu_hub - INFO - setup_fts:38 - Setting up FTS5 for documents...
+2025-07-25 10:13:48,194 - elimu_hub - INFO - setup_fts:43 - FTS5 setup complete.
+2025-07-25 10:13:48,194 - elimu_hub - INFO - startup_event:119 - FTS5 for documents is ready

@@ -22,7 +22,7 @@ def create_all_tables():
     """Create all database tables."""
     try:
         # Import all models to ensure they're registered
-        from app.models.document import Document, Topic
+        from app.db.database import Document, Topic
         from app.models.chat import ChatSession, ChatMessage
         from app.models.analytics import APIRequest
         from app.auth.models import User
