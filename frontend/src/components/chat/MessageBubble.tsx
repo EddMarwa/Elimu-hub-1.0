@@ -2,18 +2,31 @@
 
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
-import { ChatMessage, Subject } from '@/types/chat'
+import { ChatMessage } from '@/types/chat'
 
 interface MessageBubbleProps {
   message: ChatMessage
 }
 
-const subjectColors: Record<Subject, string> = {
-  Mathematics: 'bg-green-100 text-green-800',
-  English: 'bg-yellow-100 text-yellow-800',
-  Science: 'bg-blue-100 text-blue-800',
-  Kiswahili: 'bg-orange-100 text-orange-800',
-  History: 'bg-purple-100 text-purple-800'
+// Function to format message content with styled references
+const formatMessageWithReferences = (content: string) => {
+  // Split by common reference patterns like "Page X", "Source:", etc.
+  const parts = content.split(/(\(.*?page\s+\d+.*?\)|source:.*?\)|page\s+\d+|pp?\.\s*\d+(?:-\d+)?)/gi)
+  
+  return parts.map((part, index) => {
+    // Check if this part is a reference
+    const isReference = /(\(.*?page\s+\d+.*?\)|source:.*?\)|page\s+\d+|pp?\.\s*\d+(?:-\d+)?)/i.test(part)
+    
+    if (isReference) {
+      return (
+        <span key={index} className="italic text-green-600 font-medium">
+          {part}
+        </span>
+      )
+    }
+    
+    return <span key={index}>{part}</span>
+  })
 }
 
 export default function MessageBubble({ message }: MessageBubbleProps) {
@@ -45,17 +58,11 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
   return (
     <div className="flex justify-start mb-4">
       <div className="max-w-[70%] bg-white rounded-2xl rounded-bl-md px-4 py-3 shadow-lg border-2 border-gray-200">
-        {message.subject && (
-          <div className={cn(
-            'inline-block px-2 py-1 rounded-full text-xs font-medium mb-2',
-            subjectColors[message.subject]
-          )}>
-            {message.subject}
-          </div>
-        )}
         <div className="flex items-start gap-2">
           <div className="flex-1">
-            <p className="text-sm text-gray-900 font-medium">{message.content}</p>
+            <div className="text-sm text-gray-900 font-medium">
+              {formatMessageWithReferences(message.content)}
+            </div>
             <p className="text-xs text-gray-500 mt-1">
               {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
             </p>

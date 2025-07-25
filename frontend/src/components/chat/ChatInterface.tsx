@@ -137,12 +137,20 @@ export default function ChatInterface() {
     const sessionId = `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
     setCurrentChatSessionId(sessionId)
     setMessages([]) // Clear messages when starting new chat
+    setUploadedDocuments([]) // Clear uploaded documents for new session
+    
+    // Auto-collapse sidebar on mobile after selection
+    if (window.innerWidth < 768) {
+      setIsSidebarCollapsed(true)
+    }
   }
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      {/* Sidebar - hidden on mobile by default */}
-      <div className="hidden md:block">
+    <div className="flex h-screen bg-gray-50 overflow-hidden">
+      {/* Sidebar - responsive width and adaptive layout */}
+      <div className={`hidden md:block transition-all duration-300 ${
+        isSidebarCollapsed ? 'w-16' : 'w-80 max-w-[25vw]'
+      }`}>
         <Sidebar
           chatHistory={chatHistory}
           onChatSelect={handleChatSelect}
@@ -167,11 +175,11 @@ export default function ChatInterface() {
         </button>
       </div>
 
-      {/* Mobile sidebar overlay */}
+      {/* Mobile sidebar overlay - improved positioning and transitions */}
       {!isSidebarCollapsed && (
-        <div className="md:hidden fixed inset-0 z-30">
-          <div className="absolute inset-0 bg-black bg-opacity-50" onClick={() => setIsSidebarCollapsed(true)} />
-          <div className="absolute left-0 top-0 h-full w-80 bg-white">
+        <div className="md:hidden fixed inset-0 z-30 transition-opacity duration-200">
+          <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity" onClick={() => setIsSidebarCollapsed(true)} />
+          <div className="absolute left-0 top-0 h-full w-80 max-w-[85vw] bg-white transform transition-transform duration-300 shadow-xl">
             <Sidebar
               chatHistory={chatHistory}
               onChatSelect={handleChatSelect}
@@ -185,8 +193,16 @@ export default function ChatInterface() {
         </div>
       )}
 
-      {/* Main Chat Area */}
-      <div className="flex-1 flex flex-col">
+      {/* Main Chat Area - responsive flex layout */}
+      <div className="flex-1 flex flex-col min-w-0 relative">
+        {/* Chat header with adaptive spacing */}
+        <div className="md:hidden flex items-center justify-between p-4 bg-white border-b border-gray-200">
+          <h2 className="text-lg font-semibold text-gray-900">Elimu Hub Chat</h2>
+          <span className="text-sm text-gray-600">
+            {chatHistory.length > 0 ? `${chatHistory.length} chat${chatHistory.length > 1 ? 's' : ''}` : 'New chat'}
+          </span>
+        </div>
+        
         <ChatWindow
           messages={messages}
           isLoading={isLoading}
