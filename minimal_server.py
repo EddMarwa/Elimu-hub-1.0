@@ -135,9 +135,16 @@ def simple_search(query: str, topic: str = None, limit: int = 5, chat_session_id
     
     query_words = query.lower().split()
     
-    # Build query conditions
-    conditions = ["LOWER(content) LIKE ?"]
-    params = [f"%{' '.join(query_words)}%"]
+    # Build query conditions - search for any of the words
+    word_conditions = []
+    word_params = []
+    for word in query_words:
+        word_conditions.append("LOWER(content) LIKE ?")
+        word_params.append(f"%{word}%")
+    
+    # Combine word conditions with OR
+    conditions = [f"({' OR '.join(word_conditions)})"]
+    params = word_params
     
     if topic:
         conditions.append("topic = ?")
