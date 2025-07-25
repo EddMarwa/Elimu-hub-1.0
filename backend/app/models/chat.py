@@ -1,11 +1,9 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, Float, Boolean
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from pydantic import BaseModel
 from typing import List, Optional
-
-Base = declarative_base()
+from app.db.database import Base
 
 class ChatSession(Base):
     __tablename__ = "chat_sessions"
