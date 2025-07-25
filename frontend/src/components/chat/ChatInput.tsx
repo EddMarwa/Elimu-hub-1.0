@@ -1,15 +1,18 @@
 'use client'
 
-import { useState, KeyboardEvent } from 'react'
+import { useState, KeyboardEvent, useRef } from 'react'
 
 interface ChatInputProps {
   onSendMessage: (message: string) => void
   isLoading?: boolean
   disabled?: boolean
+  currentSubject?: string
 }
 
-export default function ChatInput({ onSendMessage, isLoading = false, disabled = false }: ChatInputProps) {
+export default function ChatInput({ onSendMessage, isLoading = false, disabled = false, currentSubject = 'General' }: ChatInputProps) {
   const [message, setMessage] = useState('')
+  const [isUploading, setIsUploading] = useState(false)
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const handleSend = () => {
     if (message.trim() && !isLoading && !disabled) {
@@ -23,6 +26,59 @@ export default function ChatInput({ onSendMessage, isLoading = false, disabled =
       e.preventDefault()
       handleSend()
     }
+  }
+
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+
+    // Check if file is PDF
+    if (file.type !== 'application/pdf') {
+      alert('Please select a PDF file only.')
+      return
+    }
+
+    // Check file size (max 10MB)
+    if (file.size > 10 * 1024 * 1024) {
+      alert('File size must be less than 10MB.')
+      return
+    }
+
+    setIsUploading(true)
+
+    try {
+      const formData = new FormData()
+      formData.append('file', file)
+      formData.append('topic', currentSubject)
+
+      const response = await fetch('http://localhost:8000/api/v1/upload', {
+        method: 'POST',
+        body: formData
+      })
+
+      if (!response.ok) {
+        throw new Error(`Upload failed: ${response.status}`)
+      }
+
+      const result = await response.json()
+      
+      // Send a message indicating successful upload
+      onSendMessage(`📄 Successfully uploaded "${file.name}" to ${currentSubject} topic. You can now ask questions about this document!`)
+      
+    } catch (error) {
+      console.error('Upload error:', error)
+      alert('Failed to upload file. Please try again.')
+    } finally {
+      setIsUploading(false)
+      // Reset file input
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
+    }
+  }
+
+  const triggerFileUpload = () => {
+    fileInputRef.current?.click()
   }
 
   return (
